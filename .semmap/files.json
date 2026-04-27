@@ -81,7 +81,7 @@
     ],
     "hotspot": true,
     "fan_in": 0,
-    "risk_score": 11.0,
+    "risk_score": 17.0,
     "semantic_summary": "pure computation",
     "analysis": {
       "functions": {
@@ -160,7 +160,7 @@
     "path": "src/app/actions.rs",
     "layer": 1,
     "file_kind": "production",
-    "description": "Implements initial state.",
+    "description": "Implements app action.",
     "exports": [
       "AppAction",
       "initial_state",
@@ -489,6 +489,71 @@
     }
   },
   {
+    "path": "src/pretext.rs",
+    "layer": 1,
+    "file_kind": "test",
+    "description": "Implements prepare options.default.",
+    "exports": [
+      "measure_line_stats",
+      "PreparedText",
+      "WhiteSpace",
+      "WordBreak"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "panics-on-error"
+    ],
+    "quality_tags": [
+      "undocumented",
+      "complex-flow"
+    ],
+    "hotspot": true,
+    "fan_in": 0,
+    "risk_score": 8.333333,
+    "semantic_summary": "side-effecting that panics on error",
+    "analysis": {
+      "functions": {
+        "total": 14,
+        "public": 5,
+        "max_cognitive_complexity": 15,
+        "avg_cognitive_complexity": 2
+      },
+      "types": {
+        "total": 8,
+        "public": 7
+      },
+      "calls": {
+        "total_calls": 110,
+        "resolved_calls": 45,
+        "unresolved_calls": 65,
+        "resolution_rate": 0.4090909
+      },
+      "control_flow": {
+        "max_nesting_depth": 3,
+        "cognitive_complexity": 41
+      },
+      "error_handling": {
+        "total_sites": 4,
+        "panics": 4,
+        "swallowed": 0,
+        "propagated": 0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 12
+      },
+      "activation": {
+        "total_sites": 15,
+        "kinds": [
+          "callback-surface"
+        ]
+      },
+      "guards": {
+        "total_sites": 6
+      }
+    }
+  },
+  {
     "path": "src/storage.rs",
     "layer": 1,
     "file_kind": "production",
@@ -651,9 +716,9 @@
       "split",
       "status"
     ],
-    "hotspot": false,
+    "hotspot": true,
     "fan_in": 0,
-    "risk_score": 3.0,
+    "risk_score": 5.0,
     "analysis": {}
   },
   {
@@ -672,7 +737,7 @@
     "semantic_summary": "pure computation",
     "analysis": {
       "functions": {
-        "total": 2,
+        "total": 3,
         "public": 1,
         "max_cognitive_complexity": 0,
         "avg_cognitive_complexity": 0
@@ -682,14 +747,20 @@
         "public": 1
       },
       "calls": {
-        "total_calls": 13,
-        "resolved_calls": 2,
-        "unresolved_calls": 11,
-        "resolution_rate": 0.15384616
+        "total_calls": 20,
+        "resolved_calls": 3,
+        "unresolved_calls": 17,
+        "resolution_rate": 0.15
       },
       "docs": {
         "documented_symbols": 0,
         "undocumented_public": 2
+      },
+      "activation": {
+        "total_sites": 1,
+        "kinds": [
+          "callback-surface"
+        ]
       }
     }
   },
@@ -1027,11 +1098,11 @@
       "export",
       "markdown",
       "platform",
-      "storage"
+      "pretext"
     ],
     "hotspot": true,
     "fan_in": 0,
-    "risk_score": 6.0,
+    "risk_score": 8.0,
     "analysis": {}
   },
   {
@@ -1098,6 +1169,41 @@
       },
       "guards": {
         "total_sites": 9
+      }
+    }
+  },
+  {
+    "path": "tests/pretext_layout.rs",
+    "layer": 4,
+    "file_kind": "test",
+    "description": "Tests for crab_paperwork.",
+    "exports": [],
+    "coupling": "mixed",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.3333334,
+    "semantic_summary": "side-effecting",
+    "analysis": {
+      "functions": {
+        "total": 2,
+        "public": 0,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 10,
+        "resolved_calls": 0,
+        "unresolved_calls": 10,
+        "resolution_rate": 0.0
+      },
+      "error_handling": {
+        "total_sites": 4,
+        "panics": 4,
+        "swallowed": 0,
+        "propagated": 0
+      },
+      "guards": {
+        "total_sites": 4
       }
     }
   },

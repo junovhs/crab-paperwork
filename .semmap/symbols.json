@@ -13,6 +13,9 @@
       "fn::sanitize_html@3",
       "fn::load_config@11",
       "fn::load_session@37",
+      "fn::editor_layout@41",
+      "fn::prepare_then_layout_is_reusable_for_multiple_widths@6",
+      "fn::pre_wrap_counts_hard_breaks_and_tabs@21",
       "fn::clamps_split_ratio_to_usable_bounds@4"
     ],
     "callees": [],
@@ -460,6 +463,434 @@
     "panic_sites": 0
   },
   {
+    "stable_id": "fn::default@23",
+    "name": "default",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 23,
+    "end_line": 29,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::empty_text_has_no_layout_height@273",
+      "fn::pre_wrap_preserves_hard_breaks@281",
+      "fn::letter_spacing_changes_measured_width@295"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::monospace@41",
+    "name": "monospace",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 41,
+    "end_line": 50,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::empty_text_has_no_layout_height@273",
+      "fn::pre_wrap_preserves_hard_breaks@281",
+      "fn::letter_spacing_changes_measured_width@295",
+      "fn::editor_layout@41",
+      "fn::prepare_then_layout_is_reusable_for_multiple_widths@6",
+      "fn::pre_wrap_counts_hard_breaks_and_tabs@21"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::prepare@78",
+    "name": "prepare",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 78,
+    "end_line": 98,
+    "visibility": "Public",
+    "cognitive_complexity": 7,
+    "callers": [
+      "fn::empty_text_has_no_layout_height@273",
+      "fn::pre_wrap_preserves_hard_breaks@281",
+      "fn::letter_spacing_changes_measured_width@295",
+      "fn::editor_layout@41",
+      "fn::prepare_then_layout_is_reusable_for_multiple_widths@6",
+      "fn::pre_wrap_counts_hard_breaks_and_tabs@21"
+    ],
+    "callees": [
+      "type::FontMetrics@33",
+      "type::PrepareOptions@16",
+      "fn::normalize_normal_whitespace@250",
+      "type::Segment@59",
+      "fn::prepare_line@165",
+      "type::PreparedText@54"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::layout@100",
+    "name": "layout",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 100,
+    "end_line": 107,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::editor_layout@41",
+      "fn::prepare_then_layout_is_reusable_for_multiple_widths@6"
+    ],
+    "callees": [
+      "type::PreparedText@54",
+      "fn::measure_line_stats@109",
+      "type::LayoutResult@73"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::measure_line_stats@109",
+    "name": "measure_line_stats",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 109,
+    "end_line": 163,
+    "visibility": "Public",
+    "cognitive_complexity": 15,
+    "callers": [
+      "fn::layout@100",
+      "fn::pre_wrap_counts_hard_breaks_and_tabs@21"
+    ],
+    "callees": [
+      "type::PreparedText@54",
+      "type::LineStats@67"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::prepare_line@165",
+    "name": "prepare_line",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 165,
+    "end_line": 197,
+    "visibility": "Private",
+    "cognitive_complexity": 13,
+    "callers": [
+      "fn::prepare@78"
+    ],
+    "callees": [
+      "type::FontMetrics@33",
+      "type::PrepareOptions@16",
+      "type::Segment@59",
+      "fn::push_segment@213",
+      "fn::push_space@199"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::push_space@199",
+    "name": "push_space",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 199,
+    "end_line": 211,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::prepare_line@165"
+    ],
+    "callees": [
+      "type::FontMetrics@33",
+      "type::PrepareOptions@16",
+      "type::Segment@59"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::push_segment@213",
+    "name": "push_segment",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 213,
+    "end_line": 227,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::prepare_line@165"
+    ],
+    "callees": [
+      "type::FontMetrics@33",
+      "type::PrepareOptions@16",
+      "type::Segment@59",
+      "fn::measure_text@229"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::measure_text@229",
+    "name": "measure_text",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 229,
+    "end_line": 248,
+    "visibility": "Private",
+    "cognitive_complexity": 6,
+    "callers": [
+      "fn::push_segment@213"
+    ],
+    "callees": [
+      "type::FontMetrics@33",
+      "fn::is_wide@254"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::normalize_normal_whitespace@250",
+    "name": "normalize_normal_whitespace",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 250,
+    "end_line": 252,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::prepare@78"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::is_wide@254",
+    "name": "is_wide",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 254,
+    "end_line": 266,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::measure_text@229"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::empty_text_has_no_layout_height@273",
+    "name": "empty_text_has_no_layout_height",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 273,
+    "end_line": 278,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::prepare@78",
+      "fn::monospace@41",
+      "fn::default@23"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::pre_wrap_preserves_hard_breaks@281",
+    "name": "pre_wrap_preserves_hard_breaks",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 281,
+    "end_line": 292,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::prepare@78",
+      "fn::monospace@41",
+      "type::PrepareOptions@16",
+      "fn::default@23"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::letter_spacing_changes_measured_width@295",
+    "name": "letter_spacing_changes_measured_width",
+    "kind": "Function",
+    "file": "src/pretext.rs",
+    "start_line": 295,
+    "end_line": 311,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::monospace@41",
+      "fn::prepare@78",
+      "fn::default@23",
+      "type::PrepareOptions@16"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::WhiteSpace@4",
+    "name": "WhiteSpace",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 4,
+    "end_line": 7,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "type::PrepareOptions@16"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::WordBreak@10",
+    "name": "WordBreak",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 10,
+    "end_line": 13,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "type::PrepareOptions@16"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::PrepareOptions@16",
+    "name": "PrepareOptions",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 16,
+    "end_line": 20,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::prepare@78",
+      "fn::prepare_line@165",
+      "fn::push_space@199",
+      "fn::push_segment@213",
+      "fn::pre_wrap_preserves_hard_breaks@281",
+      "fn::letter_spacing_changes_measured_width@295",
+      "fn::editor_layout@41",
+      "fn::pre_wrap_counts_hard_breaks_and_tabs@21"
+    ],
+    "callees": [
+      "type::WhiteSpace@4",
+      "type::WordBreak@10"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::FontMetrics@33",
+    "name": "FontMetrics",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 33,
+    "end_line": 38,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::prepare@78",
+      "fn::prepare_line@165",
+      "fn::push_space@199",
+      "fn::push_segment@213",
+      "fn::measure_text@229"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::PreparedText@54",
+    "name": "PreparedText",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 54,
+    "end_line": 56,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::prepare@78",
+      "fn::layout@100",
+      "fn::measure_line_stats@109"
+    ],
+    "callees": [
+      "type::Segment@59"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::Segment@59",
+    "name": "Segment",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 59,
+    "end_line": 64,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "type::PreparedText@54",
+      "fn::prepare@78",
+      "fn::prepare_line@165",
+      "fn::push_space@199",
+      "fn::push_segment@213"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::LineStats@67",
+    "name": "LineStats",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 67,
+    "end_line": 70,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::measure_line_stats@109"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "type::LayoutResult@73",
+    "name": "LayoutResult",
+    "kind": "Type",
+    "file": "src/pretext.rs",
+    "start_line": 73,
+    "end_line": 76,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::layout@100"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
     "stable_id": "fn::load_config@11",
     "name": "load_config",
     "kind": "Function",
@@ -699,49 +1130,72 @@
     "panic_sites": 0
   },
   {
-    "stable_id": "fn::Editor@11",
+    "stable_id": "fn::Editor@13",
     "name": "Editor",
     "kind": "Function",
     "file": "src/ui/editor.rs",
-    "start_line": 11,
-    "end_line": 33,
+    "start_line": 13,
+    "end_line": 39,
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [],
     "callees": [
-      "type::EditorProps@4",
-      "fn::line_numbers_for@35"
+      "type::EditorProps@6",
+      "fn::line_numbers_for@54",
+      "fn::editor_layout@41"
     ],
     "has_guard_coverage": false,
     "panic_sites": 0
   },
   {
-    "stable_id": "fn::line_numbers_for@35",
-    "name": "line_numbers_for",
+    "stable_id": "fn::editor_layout@41",
+    "name": "editor_layout",
     "kind": "Function",
     "file": "src/ui/editor.rs",
-    "start_line": 35,
-    "end_line": 42,
+    "start_line": 41,
+    "end_line": 52,
     "visibility": "Private",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::Editor@11"
+      "fn::Editor@13"
+    ],
+    "callees": [
+      "fn::prepare@78",
+      "fn::monospace@41",
+      "type::PrepareOptions@16",
+      "fn::default@11",
+      "fn::layout@100"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::line_numbers_for@54",
+    "name": "line_numbers_for",
+    "kind": "Function",
+    "file": "src/ui/editor.rs",
+    "start_line": 54,
+    "end_line": 61,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Editor@13"
     ],
     "callees": [],
     "has_guard_coverage": false,
     "panic_sites": 0
   },
   {
-    "stable_id": "type::EditorProps@4",
+    "stable_id": "type::EditorProps@6",
     "name": "EditorProps",
     "kind": "Type",
     "file": "src/ui/editor.rs",
-    "start_line": 4,
-    "end_line": 8,
+    "start_line": 6,
+    "end_line": 10,
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::Editor@11"
+      "fn::Editor@13"
     ],
     "callees": [],
     "has_guard_coverage": false,
@@ -1035,6 +1489,45 @@
     ],
     "has_guard_coverage": true,
     "panic_sites": 9
+  },
+  {
+    "stable_id": "fn::prepare_then_layout_is_reusable_for_multiple_widths@6",
+    "name": "prepare_then_layout_is_reusable_for_multiple_widths",
+    "kind": "Function",
+    "file": "tests/pretext_layout.rs",
+    "start_line": 6,
+    "end_line": 18,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::prepare@78",
+      "fn::monospace@41",
+      "fn::default@11",
+      "fn::layout@100"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::pre_wrap_counts_hard_breaks_and_tabs@21",
+    "name": "pre_wrap_counts_hard_breaks_and_tabs",
+    "kind": "Function",
+    "file": "tests/pretext_layout.rs",
+    "start_line": 21,
+    "end_line": 35,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::prepare@78",
+      "fn::monospace@41",
+      "type::PrepareOptions@16",
+      "fn::default@11",
+      "fn::measure_line_stats@109"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
   },
   {
     "stable_id": "fn::clamps_split_ratio_to_usable_bounds@4",

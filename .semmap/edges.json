@@ -100,6 +100,11 @@
     "kind": "import"
   },
   {
+    "from": "src/ui/editor.rs",
+    "to": "src/pretext.rs",
+    "kind": "import"
+  },
+  {
     "from": "src/ui/split.rs",
     "to": "src/ui.rs",
     "kind": "import"
@@ -137,6 +142,11 @@
   {
     "from": "src/lib.rs",
     "to": "src/platform.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/pretext.rs",
     "kind": "import"
   },
   {
@@ -205,6 +215,16 @@
     "kind": "call"
   },
   {
+    "from": "src/pretext.rs",
+    "to": "src/ui.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/pretext.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  },
+  {
     "from": "src/storage.rs",
     "to": "src/storage/config.rs",
     "kind": "call"
@@ -217,6 +237,16 @@
   {
     "from": "src/storage.rs",
     "to": "src/storage/paths.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/ui/editor.rs",
+    "to": "src/lib.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/ui/editor.rs",
+    "to": "src/storage/config.rs",
     "kind": "call"
   },
   {
@@ -237,6 +267,16 @@
   {
     "from": "tests/markdown_render.rs",
     "to": "src/lib.rs",
+    "kind": "call"
+  },
+  {
+    "from": "tests/pretext_layout.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  },
+  {
+    "from": "tests/pretext_layout.rs",
+    "to": "src/pretext.rs",
     "kind": "call"
   },
   {

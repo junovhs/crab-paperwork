@@ -149,7 +149,7 @@ Exports: actions, defaults, state
 Semantic: side-effecting stateful module
 
 `src/app/actions.rs`
-Implements initial state. [COUPLING:pure] [QUALITY:undocumented]
+Implements app action. [COUPLING:pure] [QUALITY:undocumented]
 Exports: AppAction, initial_state, reduce
 Semantic: pure computation
 
@@ -191,6 +191,11 @@ controller for files via file I/O. [COUPLING:mixed] [BEHAVIOR:persists]
 Exports: read_markdown, write_markdown
 Semantic: side-effecting adapter
 
+`src/pretext.rs`
+Implements prepare options.default. [HOTSPOT] [COUPLING:mixed] [BEHAVIOR:panics-on-error] [QUALITY:undocumented,complex-flow]
+Exports: measure_line_stats, PreparedText, WhiteSpace, WordBreak
+Semantic: side-effecting that panics on error
+
 `src/storage.rs`
 config for storage via file I/O. [HOTSPOT] [COUPLING:mixed] [BEHAVIOR:persists,propagates-errors] [QUALITY:undocumented,error-boundary,syntax-degraded]
 Exports: load_config, load_session, save_config, save_session
@@ -206,7 +211,7 @@ Implements session state. [HOTSPOT]
 Exports: SessionState
 
 `src/ui.rs`
-Re-exports the public API surface.
+Re-exports the public API surface. [HOTSPOT]
 Exports: editor, preview, split, status
 
 `src/ui/editor.rs`
@@ -268,7 +273,7 @@ Implements main functionality. styles.
 
 `src/lib.rs`
 Re-exports the public API surface. [HOTSPOT]
-Exports: export, markdown, platform, storage
+Exports: export, markdown, platform, pretext
 
 `src/main.rs`
 Application entry point. [COUPLING:pure]
@@ -277,6 +282,10 @@ Semantic: pure computation
 ## Layer 4 -- Tests
 
 `tests/markdown_render.rs`
+Tests for crab_paperwork. [COUPLING:mixed]
+Semantic: side-effecting
+
+`tests/pretext_layout.rs`
 Tests for crab_paperwork. [COUPLING:mixed]
 Semantic: side-effecting
 
@@ -296,10 +305,16 @@ DependencyGraph:
   # --- High Fan-In Hotspots ---
   config.rs:
     Imports: []
-    ImportedBy: [actions.rs, app.rs, sanitize.rs, src/storage.rs, tests/storage.rs]
+    ImportedBy: [actions.rs, app.rs, editor.rs, pretext.rs, pretext_layout.rs, sanitize.rs, src/storage.rs, tests/storage.rs]
+  lib.rs:
+    Imports: [app.rs, export.rs, markdown.rs, platform.rs, pretext.rs, src/storage.rs, ui.rs]
+    ImportedBy: [editor.rs, files.rs, markdown_render.rs, render.rs]
   render.rs:
     Imports: [lib.rs, markdown.rs, sanitize.rs]
     ImportedBy: [actions.rs, app.rs, markdown.rs, markdown_render.rs]
+  ui.rs:
+    Imports: [editor.rs, preview.rs, split.rs, status.rs, toolbar.rs]
+    ImportedBy: [app.rs, lib.rs, pretext.rs, split.rs]
   # --- Layer 0 -- Config ---
   Cargo.toml, Dioxus.toml, README.md, SEMMAP.md, neti.toml, rustfmt.toml:
     Imports: []
@@ -317,8 +332,8 @@ DependencyGraph:
   defaults.rs, state.rs:
     Imports: []
     ImportedBy: [app.rs]
-  editor.rs, preview.rs, status.rs, toolbar.rs:
-    Imports: []
+  editor.rs:
+    Imports: [config.rs, lib.rs, pretext.rs]
     ImportedBy: [ui.rs]
   files.rs:
     Imports: [lib.rs]
@@ -332,6 +347,12 @@ DependencyGraph:
   platform.rs:
     Imports: [clipboard.rs, dialogs.rs, files.rs]
     ImportedBy: [lib.rs]
+  pretext.rs:
+    Imports: [config.rs, ui.rs]
+    ImportedBy: [editor.rs, lib.rs, pretext_layout.rs]
+  preview.rs, status.rs, toolbar.rs:
+    Imports: []
+    ImportedBy: [ui.rs]
   sanitize.rs:
     Imports: [config.rs, export.rs]
     ImportedBy: [markdown.rs, render.rs]
@@ -344,9 +365,6 @@ DependencyGraph:
   src/storage.rs:
     Imports: [config.rs, paths.rs, session.rs]
     ImportedBy: [app.rs, lib.rs]
-  ui.rs:
-    Imports: [editor.rs, preview.rs, split.rs, status.rs, toolbar.rs]
-    ImportedBy: [app.rs, lib.rs, split.rs]
   # --- Layer 2 -- Adapters / Infra ---
   export.rs:
     Imports: [html.rs, pdf.rs]
@@ -354,13 +372,12 @@ DependencyGraph:
   html.rs, pdf.rs:
     Imports: []
     ImportedBy: [export.rs]
-  # --- Layer 3 -- App / Entrypoints ---
-  lib.rs:
-    Imports: [app.rs, export.rs, markdown.rs, platform.rs, src/storage.rs, ui.rs]
-    ImportedBy: [files.rs, markdown_render.rs, render.rs]
   # --- Tests ---
   markdown_render.rs:
     Imports: [lib.rs, render.rs]
+    ImportedBy: []
+  pretext_layout.rs:
+    Imports: [config.rs, pretext.rs]
     ImportedBy: []
   tests/storage.rs:
     Imports: [config.rs]

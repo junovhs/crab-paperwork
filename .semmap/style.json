@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-27T21:43:36Z",
+  "generated_at": "2026-04-27T21:49:18Z",
   "entries": [
     {
       "file": "src/storage/config.rs",
@@ -175,6 +175,28 @@
       ]
     },
     {
+      "file": "src/pretext.rs",
+      "language": "rust",
+      "idiom_category": "error-propagation",
+      "excerpts": [
+        "use unicode_segmentation::UnicodeSegmentation;",
+        "",
+        "#[derive(Clone, Copy, Debug, Eq, PartialEq)]",
+        "pub enum WhiteSpace {",
+        "    Normal,",
+        "    PreWrap,",
+        "}",
+        "",
+        "#[derive(Clone, Copy, Debug, Eq, PartialEq)]",
+        "pub enum WordBreak {",
+        "    Normal,",
+        "    KeepAll,",
+        "}",
+        "",
+        "#[derive(Clone, Copy, Debug, PartialEq)]"
+      ]
+    },
+    {
       "file": "src/storage.rs",
       "language": "rust",
       "idiom_category": "error-propagation",
@@ -225,6 +247,8 @@
       "excerpts": [
         "use dioxus::prelude::*;",
         "",
+        "use crate::pretext::{layout, prepare, FontMetrics, PrepareOptions, WhiteSpace};",
+        "",
         "#[derive(Clone, PartialEq, Props)]",
         "pub struct EditorProps {",
         "    pub markdown: String,",
@@ -235,9 +259,7 @@
         "#[allow(non_snake_case)]",
         "pub fn Editor(props: EditorProps) -> Element {",
         "    let on_change = props.on_change;",
-        "    let on_scroll = props.on_scroll;",
-        "    let line_numbers = line_numbers_for(&props.markdown);",
-        ""
+        "    let on_scroll = props.on_scroll;"
       ]
     },
     {
@@ -429,6 +451,28 @@
         "}",
         "",
         "#[test]"
+      ]
+    },
+    {
+      "file": "tests/pretext_layout.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use crab_paperwork::pretext::{",
+        "    layout, measure_line_stats, prepare, FontMetrics, PrepareOptions, WhiteSpace,",
+        "};",
+        "",
+        "#[test]",
+        "fn prepare_then_layout_is_reusable_for_multiple_widths() {",
+        "    let prepared = prepare(",
+        "        \"AGI spring paperwork\",",
+        "        FontMetrics::monospace(16.0),",
+        "        PrepareOptions::default(),",
+        "    );",
+        "",
+        "    let narrow = layout(&prepared, 60.0, 20.0);",
+        "    let wide = layout(&prepared, 400.0, 20.0);",
+        ""
       ]
     },
     {

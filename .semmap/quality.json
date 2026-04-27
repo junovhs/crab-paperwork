@@ -119,6 +119,13 @@
     "doc_coverage": 0.0
   },
   {
+    "file": "src/pretext.rs",
+    "hotspot_score": 0.6,
+    "fan_in": 2,
+    "cognitive_complexity_max": 15,
+    "doc_coverage": 0.0
+  },
+  {
     "file": "src/storage.rs",
     "hotspot_score": 0.41333336,
     "fan_in": 2,
@@ -246,6 +253,13 @@
   },
   {
     "file": "tests/markdown_render.rs",
+    "hotspot_score": 0.0,
+    "fan_in": 0,
+    "cognitive_complexity_max": 0,
+    "doc_coverage": 1.0
+  },
+  {
+    "file": "tests/pretext_layout.rs",
     "hotspot_score": 0.0,
     "fan_in": 0,
     "cognitive_complexity_max": 0,

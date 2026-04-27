@@ -26,6 +26,13 @@ Crab Paperwork is intentionally small:
 - Light/dark theme
 - Local session persistence
 
+## Text Layout
+
+The editor uses a Rust-native, Pretext-inspired layout helper: text is prepared
+once into grapheme-aware measured segments, then re-laid out cheaply for width
+and line-height calculations. It follows Pretext's prepare/layout shape while
+staying inside this app's Rust-only, no-JavaScript, no-npm constraints.
+
 ## Run
 
 ```bash

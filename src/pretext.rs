@@ -81,12 +81,14 @@ pub fn prepare(text: &str, metrics: FontMetrics, options: PrepareOptions) -> Pre
         WhiteSpace::PreWrap => text.replace("\r\n", "\n").replace('\r', "\n"),
     };
 
-    let mut segments = Vec::new();
+    let mut segments: Vec<Segment> = Vec::new();
 
     for (line_index, line) in normalized.split('\n').enumerate() {
-        if line_index > 0 && let Some(previous) = segments.last_mut() {
-            previous.hard_break_after = true;
-            previous.break_after = true;
+        if line_index > 0 {
+            if let Some(previous) = segments.last_mut() {
+                previous.hard_break_after = true;
+                previous.break_after = true;
+            }
         }
 
         prepare_line(line, metrics, options, &mut segments);
@@ -113,25 +115,38 @@ pub fn measure_line_stats(prepared: &PreparedText, max_width: f32) -> LineStats 
     }
 
     let max_width = max_width.max(1.0);
-    let mut line_count = 1;
+    let mut line_count: usize = 1;
     let mut current_width = 0.0_f32;
+    let mut last_break_width = None;
     let mut max_line_width = 0.0_f32;
 
     for segment in &prepared.segments {
-        let overflows = current_width > 0.0 && current_width + segment.width > max_width;
+        let proposed_width = current_width + segment.width;
+        let overflows = current_width > 0.0 && proposed_width > max_width;
 
         if overflows {
-            max_line_width = max_line_width.max(current_width);
+            let line_width = last_break_width.unwrap_or(current_width);
+            max_line_width = max_line_width.max(line_width);
             line_count += 1;
-            current_width = 0.0;
+            current_width = if last_break_width.is_some() {
+                proposed_width - line_width
+            } else {
+                segment.width
+            };
+            last_break_width = None;
+        } else {
+            current_width = proposed_width;
         }
 
-        current_width += segment.width;
+        if segment.break_after {
+            last_break_width = Some(current_width);
+        }
 
         if segment.hard_break_after {
             max_line_width = max_line_width.max(current_width);
             line_count += 1;
             current_width = 0.0;
+            last_break_width = None;
         }
     }
 
@@ -256,11 +271,7 @@ mod tests {
 
     #[test]
     fn empty_text_has_no_layout_height() {
-        let prepared = prepare(
-            "",
-            FontMetrics::monospace(16.0),
-            PrepareOptions::default(),
-        );
+        let prepared = prepare("", FontMetrics::monospace(16.0), PrepareOptions::default());
 
         assert_eq!(layout(&prepared, 320.0, 20.0).line_count, 0);
         assert_eq!(layout(&prepared, 320.0, 20.0).height, 0.0);
@@ -293,6 +304,9 @@ mod tests {
             },
         );
 
-        assert!(measure_line_stats(&spaced, 500.0).max_line_width > measure_line_stats(&normal, 500.0).max_line_width);
+        assert!(
+            measure_line_stats(&spaced, 500.0).max_line_width
+                > measure_line_stats(&normal, 500.0).max_line_width
+        );
     }
 }

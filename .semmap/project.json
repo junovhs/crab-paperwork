@@ -5,28 +5,29 @@
   "languages": [
     "rust"
   ],
-  "total_files": 37,
-  "total_lines": 2088,
+  "total_files": 39,
+  "total_lines": 2463,
   "subsystems": [
     "config",
     "config-2",
-    "storage",
+    "config-3",
     "lib",
     "session",
     "lib-2",
-    "config-3",
-    "lib-3"
+    "lib-3",
+    "config-4",
+    "lib-4"
   ],
   "entry_points": [
     "src/lib.rs",
     "src/main.rs"
   ],
-  "generated_at": "2026-04-27T21:43:36Z",
+  "generated_at": "2026-04-27T21:49:17Z",
   "omni_ast_version": "0.4.27",
   "file_hashes": {
-    "Cargo.toml": "81cc9ab92613da26ce976cbfb602d567071469a5cf5cf4efa9d1b04e800441ae",
+    "Cargo.toml": "0260a55f83691da1a4638d3ca3c142616a30212f17c90238f4b8dd62c5ba30b0",
     "Dioxus.toml": "d1d9f18351d9257eab5347113b057dbd307aa18951c6dbd21841be8c475049b7",
-    "README.md": "222e6775702cefbf5f2881cc056d3c883e7076382fbc32f78c4255d409767d85",
+    "README.md": "a8a8877d6c49e8e5684200a7fb8753239f742d23f06db3edbae418e1bff09c88",
     "SEMMAP.md": "7cf90a955ad561591987ca82fc43e1097a69e2a10433a517ccc25381b43439db",
     "assets/github_markdown_dark.css": "28c954ac6e288b535aae46ec91c99ee844a3a86ae9fe7e918d662e6defe58e3b",
     "assets/github_markdown_light.css": "4dff607c8fcc53c882c6b6910c56e35bad674cf9dff1c4f56a1a64326210e00f",
@@ -40,7 +41,7 @@
     "src/export.rs": "9815bfdb08a91a7c4fe32893b385ef31ae836934451ab774a806cf830001a3f7",
     "src/export/html.rs": "6fba6e1c1ed14c3c49b11dfe3e76ebbdb35eeeb1747856288fbd953477dc56d7",
     "src/export/pdf.rs": "9d7cafc040d80b83659e45ba73aee9c9788d63cd933652142b2b4ff4cff1e759",
-    "src/lib.rs": "ffd3a4b56de41b97b5c6fb574fdde511f98ab753f15ed197e20847a1071f7d32",
+    "src/lib.rs": "5fa3b530107828e5d74de3a71ef415d41e21eae725fb6e7b88eb6af8916577b3",
     "src/main.rs": "a9003da5992789cec9a45eaeb72a29778d7d2dcc87e071c0f2c9d4dce5175ea5",
     "src/markdown.rs": "efc1617124b5faf7031dcd93bea38493bbd6ede2b3173dd0474331627e2f9be8",
     "src/markdown/render.rs": "618af576123ba32ccb3cc8dbf100a4dbc9c36ae4775b7c1ddd178b6a95e499bc",
@@ -49,18 +50,20 @@
     "src/platform/clipboard.rs": "3ca99d5759cb2d2b8c2f9648ec241161eb3d53fa234b26b3245d31b1bd0593b7",
     "src/platform/dialogs.rs": "51e10316f2e2eaec11961ff0434034e24b2067a8b40d2c9817f3295f0b0b7afa",
     "src/platform/files.rs": "b70a2ef8d149e478cf94bc0e1c210993d361cb7850f72d6ff799870a3b80dffc",
+    "src/pretext.rs": "9e234addb653ed30e64bc9da4f2edec5017f38c656be28e0ee717b3dea2965ed",
     "src/storage.rs": "c0b57de17d053a56683bbd9cbfac7b825b4fc6920d9e9e6bf5e3f4236b99dbd1",
     "src/storage/config.rs": "7dc8f53fe6bdd585f99ff68d9217dd2ecf04bde65202ea1107284611c579ef79",
     "src/storage/paths.rs": "507f7445c4b46eb328e963dc4ecc00237c04808dea464be09a328550c5ea8ec7",
     "src/storage/session.rs": "232a87fd3a5601ebd2d9797c9a972b8288979bffb400a8278d8d6a309153c2bf",
     "src/ui.rs": "7da1ef9dd5ea79913ec9f25807637f167b4f44320312faaf5f61e0e015ac994a",
-    "src/ui/editor.rs": "542e86857e29d2a3a4e68d4adb21704015476943eed8b4cd4491ddcb74841364",
+    "src/ui/editor.rs": "9b39bde4db44bb19e8dff91ec1598ef9be21153ba2bb49ab699be8b08479215f",
     "src/ui/preview.rs": "bd5625e17be36417bec97b08544a71fd240a3f2ec3aa528d8b5750c78d242ea2",
     "src/ui/split.rs": "58632b63ccc2fb8e5e71b93c06d58f90ed5b520ac005018bc4edd4d833a3b1f0",
     "src/ui/status.rs": "aa92cbe04c070b988aaf0170db1a70b833eea3f98e735004d8aab5fc6efa22aa",
     "src/ui/toolbar.rs": "9b8e45b419eab52d3fbadfa8af0f561f252c53620b47e823443112999daa448d",
     "tests/markdown_render.rs": "caa4210f576ad02de0f74154122127c3184c7e127576d3bd1296141573f33a6c",
+    "tests/pretext_layout.rs": "1161500dd712614bb90300a081791e386af78a70239e887eaf1d752569b8b3b5",
     "tests/storage.rs": "8ee6a10c55301f9bea1b2a0d60d9a6ae7726b8cd161593aa838a8a2c20f2f7bf"
   },
-  "generated_at_commit": "8535b17504cf4e87d1770803b0c7036628803a79"
+  "generated_at_commit": "56f86254f331b69fc8f514adb59401abb000a39d"
 }
