@@ -56,7 +56,7 @@ pub fn Toolbar(props: ToolbarProps) -> Element {
                 button {
                     class: "menu-button",
                     onclick: move |_| on_export.call(()),
-                    "Export HTML"
+                    "Export PDF"
                 }
 
                 label { class: "menu-check",

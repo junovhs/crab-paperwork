@@ -12,9 +12,9 @@ pub mod actions;
 pub mod defaults;
 pub mod state;
 
-static MAIN_CSS: Asset = asset!("/assets/main.css");
-static MARKDOWN_LIGHT_CSS: Asset = asset!("/assets/github_markdown_light.css");
-static MARKDOWN_DARK_CSS: Asset = asset!("/assets/github_markdown_dark.css");
+const MAIN_CSS: &str = include_str!("../assets/main.css");
+const MARKDOWN_LIGHT_CSS: &str = include_str!("../assets/github_markdown_light.css");
+const MARKDOWN_DARK_CSS: &str = include_str!("../assets/github_markdown_dark.css");
 
 #[allow(non_snake_case)]
 pub fn App() -> Element {
@@ -25,13 +25,13 @@ pub fn App() -> Element {
     let dark_mode = matches!(current.theme, ThemeMode::Dark);
 
     rsx! {
-        document::Stylesheet { href: MAIN_CSS }
-        document::Stylesheet { href: MARKDOWN_LIGHT_CSS }
-        document::Stylesheet { href: MARKDOWN_DARK_CSS }
+        document::Style { "{MAIN_CSS}" }
+        document::Style { "{MARKDOWN_LIGHT_CSS}" }
+        document::Style { "{MARKDOWN_DARK_CSS}" }
 
         div { class: "app-shell {theme_class}",
             Toolbar {
-                title: "Crab Paperwork".to_string(),
+                title: "Markdown Live Preview".to_string(),
                 sync_scroll: current.sync_scroll,
                 dark_mode,
                 on_open: move |_| {
@@ -111,7 +111,7 @@ pub fn App() -> Element {
                                 &next.rendered_html,
                                 css,
                             ) {
-                                Ok(()) => format!("Exported PDF: {}", path.display()),
+                                Ok(()) => format!("Exported HTML fallback: {}", path.display()),
                                 Err(error) => format!("{error}"),
                             }
                         }

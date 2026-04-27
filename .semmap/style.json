@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-27T21:13:04Z",
+  "generated_at": "2026-04-27T21:42:44Z",
   "entries": [
     {
       "file": "src/storage/config.rs",
@@ -42,7 +42,7 @@
         "pub mod defaults;",
         "pub mod state;",
         "",
-        "static MAIN_CSS: Asset = asset!(\"/assets/main.css\");"
+        "const MAIN_CSS: &str = include_str!(\"../assets/main.css\");"
       ]
     },
     {
@@ -236,8 +236,8 @@
         "pub fn Editor(props: EditorProps) -> Element {",
         "    let on_change = props.on_change;",
         "    let on_scroll = props.on_scroll;",
-        "",
-        "    rsx! {"
+        "    let line_numbers = line_numbers_for(&props.markdown);",
+        ""
       ]
     },
     {
@@ -393,8 +393,20 @@
       "idiom_category": "general-idioms",
       "excerpts": [
         "fn main() {",
-        "    dioxus::launch(crab_paperwork::app::App);",
-        "}"
+        "    use dioxus::desktop::{Config, LogicalPosition, LogicalSize, WindowBuilder};",
+        "    use dioxus::prelude::*;",
+        "",
+        "    LaunchBuilder::desktop()",
+        "        .with_cfg(desktop! {",
+        "            Config::new()",
+        "                .with_menu(None)",
+        "                .with_window(",
+        "                    WindowBuilder::new()",
+        "                        .with_title(\"Crab Paperwork\")",
+        "                        .with_inner_size(LogicalSize::new(1280.0, 820.0))",
+        "                        .with_min_inner_size(LogicalSize::new(900.0, 560.0))",
+        "                        .with_position(LogicalPosition::new(40.0, 40.0))",
+        "                        .with_always_on_top(false)"
       ]
     },
     {

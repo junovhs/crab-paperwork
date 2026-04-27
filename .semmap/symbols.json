@@ -116,9 +116,9 @@
     "panic_sites": 0
   },
   {
-    "stable_id": "static::MAIN_CSS@15",
+    "stable_id": "const::MAIN_CSS@15",
     "name": "MAIN_CSS",
-    "kind": "Static",
+    "kind": "Constant",
     "file": "src/app.rs",
     "start_line": 15,
     "end_line": 15,
@@ -130,9 +130,9 @@
     "panic_sites": 0
   },
   {
-    "stable_id": "static::MARKDOWN_LIGHT_CSS@16",
+    "stable_id": "const::MARKDOWN_LIGHT_CSS@16",
     "name": "MARKDOWN_LIGHT_CSS",
-    "kind": "Static",
+    "kind": "Constant",
     "file": "src/app.rs",
     "start_line": 16,
     "end_line": 16,
@@ -144,9 +144,9 @@
     "panic_sites": 0
   },
   {
-    "stable_id": "static::MARKDOWN_DARK_CSS@17",
+    "stable_id": "const::MARKDOWN_DARK_CSS@17",
     "name": "MARKDOWN_DARK_CSS",
-    "kind": "Static",
+    "kind": "Constant",
     "file": "src/app.rs",
     "start_line": 17,
     "end_line": 17,
@@ -704,13 +704,30 @@
     "kind": "Function",
     "file": "src/ui/editor.rs",
     "start_line": 11,
-    "end_line": 29,
+    "end_line": 33,
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [],
     "callees": [
-      "type::EditorProps@4"
+      "type::EditorProps@4",
+      "fn::line_numbers_for@35"
     ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::line_numbers_for@35",
+    "name": "line_numbers_for",
+    "kind": "Function",
+    "file": "src/ui/editor.rs",
+    "start_line": 35,
+    "end_line": 42,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Editor@11"
+    ],
+    "callees": [],
     "has_guard_coverage": false,
     "panic_sites": 0
   },
@@ -979,7 +996,7 @@
     "kind": "Function",
     "file": "src/main.rs",
     "start_line": 1,
-    "end_line": 3,
+    "end_line": 19,
     "visibility": "Private",
     "cognitive_complexity": 0,
     "callers": [],

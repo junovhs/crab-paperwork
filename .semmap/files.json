@@ -672,7 +672,7 @@
     "semantic_summary": "pure computation",
     "analysis": {
       "functions": {
-        "total": 1,
+        "total": 2,
         "public": 1,
         "max_cognitive_complexity": 0,
         "avg_cognitive_complexity": 0
@@ -682,10 +682,10 @@
         "public": 1
       },
       "calls": {
-        "total_calls": 4,
-        "resolved_calls": 1,
-        "unresolved_calls": 3,
-        "resolution_rate": 0.25
+        "total_calls": 13,
+        "resolved_calls": 2,
+        "unresolved_calls": 11,
+        "resolution_rate": 0.15384616
       },
       "docs": {
         "documented_symbols": 0,
@@ -1053,9 +1053,9 @@
         "avg_cognitive_complexity": 0
       },
       "calls": {
-        "total_calls": 1,
+        "total_calls": 3,
         "resolved_calls": 0,
-        "unresolved_calls": 1,
+        "unresolved_calls": 3,
         "resolution_rate": 0.0
       }
     }
