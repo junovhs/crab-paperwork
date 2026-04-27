@@ -1,0 +1,128 @@
+.theme-dark .markdown-body {
+    color: #d1d7e0;
+    background: #212830;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.theme-dark .markdown-body > *:first-child {
+    margin-top: 0;
+}
+
+.theme-dark .markdown-body > *:last-child {
+    margin-bottom: 0;
+}
+
+.theme-dark .markdown-body h1,
+.theme-dark .markdown-body h2,
+.theme-dark .markdown-body h3,
+.theme-dark .markdown-body h4,
+.theme-dark .markdown-body h5,
+.theme-dark .markdown-body h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.theme-dark .markdown-body h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #444c56;
+}
+
+.theme-dark .markdown-body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #444c56;
+}
+
+.theme-dark .markdown-body h3 {
+    font-size: 1.25em;
+}
+
+.theme-dark .markdown-body p,
+.theme-dark .markdown-body ul,
+.theme-dark .markdown-body ol,
+.theme-dark .markdown-body dl,
+.theme-dark .markdown-body table,
+.theme-dark .markdown-body pre,
+.theme-dark .markdown-body blockquote {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.theme-dark .markdown-body ul,
+.theme-dark .markdown-body ol {
+    padding-left: 2em;
+}
+
+.theme-dark .markdown-body blockquote {
+    padding: 0 1em;
+    color: #adbac7;
+    border-left: 0.25em solid #444c56;
+}
+
+.theme-dark .markdown-body code {
+    padding: 0.2em 0.4em;
+    font-family:
+        ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+        monospace;
+    font-size: 85%;
+    background: rgba(99, 110, 123, 0.4);
+    border-radius: 6px;
+}
+
+.theme-dark .markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    background: #2d333b;
+    border-radius: 6px;
+}
+
+.theme-dark .markdown-body pre code {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+.theme-dark .markdown-body a {
+    color: #539bf5;
+    text-decoration: none;
+}
+
+.theme-dark .markdown-body a:hover {
+    text-decoration: underline;
+}
+
+.theme-dark .markdown-body table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.theme-dark .markdown-body table th,
+.theme-dark .markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #444c56;
+}
+
+.theme-dark .markdown-body table tr {
+    background: #212830;
+    border-top: 1px solid #444c56;
+}
+
+.theme-dark .markdown-body table tr:nth-child(2n) {
+    background: #2d333b;
+}
+
+.theme-dark .markdown-body img {
+    max-width: 100%;
+}

@@ -1,0 +1,166 @@
+html,
+body,
+#main {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    color: #333;
+    background: #fff;
+}
+
+.theme-dark {
+    color: #d1d7e0;
+    background: #212830;
+}
+
+.topbar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 8px 16px;
+    background: #444;
+    color: #fff;
+    font-size: 13px;
+}
+
+.theme-dark .topbar {
+    background: #1c2128;
+    color: #d1d7e0;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.brand {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.menu-button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    text-decoration: underline;
+}
+
+.menu-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.split-shell {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.pane {
+    min-width: 120px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.editor-pane {
+    flex: 1 1 50%;
+    background: #fff;
+}
+
+.preview-pane {
+    flex: 1 1 50%;
+    overflow: auto;
+    background: #fff;
+}
+
+.theme-dark .editor-pane,
+.theme-dark .preview-pane {
+    background: #212830;
+}
+
+.split-divider {
+    flex: 0 0 6px;
+    cursor: col-resize;
+    background: #ddd;
+}
+
+.theme-dark .split-divider {
+    background: #444c56;
+}
+
+.markdown-editor {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: 0;
+    outline: 0;
+    resize: none;
+    padding: 24px;
+    font-family:
+        ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+        monospace;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #222;
+    background: transparent;
+}
+
+.markdown-editor::placeholder {
+    color: #8c959f;
+}
+
+.theme-dark .markdown-editor {
+    color: #d1d7e0;
+}
+
+.theme-dark .markdown-editor::placeholder {
+    color: #768390;
+}
+
+.preview-content {
+    min-height: 100%;
+    padding: 24px;
+}
+
+.statusbar {
+    flex: 0 0 auto;
+    min-height: 24px;
+    padding: 4px 12px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 12px;
+    color: #666;
+    background: #fff;
+}
+
+.theme-dark .statusbar {
+    border-top-color: #444c56;
+    color: #adbac7;
+    background: #212830;
+}

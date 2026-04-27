@@ -1,0 +1,21 @@
+[package]
+name = "crab-paperwork"
+version = "0.1.0"
+edition = "2021"
+description = "A tiny native Markdown live preview desktop app built with Rust, Dioxus, and CSS."
+license = "MIT"
+
+[dependencies]
+dioxus = { version = "0.7", features = ["desktop"] }
+pulldown-cmark = "0.13"
+ammonia = "4"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+directories = "6"
+anyhow = "1"
+thiserror = "2"
+arboard = "3"
+rfd = "0.15"
+
+[dev-dependencies]
+tempfile = "3"
