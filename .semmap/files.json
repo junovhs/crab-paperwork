@@ -126,7 +126,7 @@
     "semantic_summary": "side-effecting stateful module",
     "analysis": {
       "functions": {
-        "total": 3,
+        "total": 4,
         "public": 1,
         "max_cognitive_complexity": 4,
         "avg_cognitive_complexity": 1
@@ -790,10 +790,10 @@
         "public": 1
       },
       "calls": {
-        "total_calls": 3,
+        "total_calls": 2,
         "resolved_calls": 1,
-        "unresolved_calls": 2,
-        "resolution_rate": 0.33333334
+        "unresolved_calls": 1,
+        "resolution_rate": 0.5
       },
       "docs": {
         "documented_symbols": 0,
@@ -804,44 +804,56 @@
   {
     "path": "src/ui/split.rs",
     "layer": 1,
-    "file_kind": "production",
+    "file_kind": "test",
     "description": "Implements split props.",
     "exports": [
       "SplitProps",
       "Split"
     ],
-    "coupling": "pure",
+    "coupling": "mixed",
+    "behavior_tags": [
+      "panics-on-error"
+    ],
+    "quality_tags": [
+      "error-boundary"
+    ],
     "hotspot": false,
     "fan_in": 0,
-    "risk_score": 1.4,
-    "semantic_summary": "pure computation",
+    "risk_score": 3.4,
+    "semantic_summary": "side-effecting that panics on error",
     "analysis": {
       "functions": {
-        "total": 1,
+        "total": 5,
         "public": 1,
         "max_cognitive_complexity": 2,
-        "avg_cognitive_complexity": 2
+        "avg_cognitive_complexity": 0
       },
       "types": {
         "total": 1,
         "public": 1
       },
       "calls": {
-        "total_calls": 6,
+        "total_calls": 10,
         "resolved_calls": 1,
-        "unresolved_calls": 5,
-        "resolution_rate": 0.16666667
+        "unresolved_calls": 9,
+        "resolution_rate": 0.1
       },
       "control_flow": {
         "max_nesting_depth": 1,
         "cognitive_complexity": 2
+      },
+      "error_handling": {
+        "total_sites": 6,
+        "panics": 6,
+        "swallowed": 0,
+        "propagated": 0
       },
       "docs": {
         "documented_symbols": 0,
         "undocumented_public": 2
       },
       "guards": {
-        "total_sites": 1
+        "total_sites": 7
       }
     }
   },

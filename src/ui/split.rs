@@ -38,8 +38,11 @@ pub fn Split(props: SplitProps) -> Element {
                         }
 
                         let data = event.data();
-                        let max_scroll = (data.scroll_height() - data.client_height()).max(1) as f64;
-                        let ratio = (data.scroll_top() / max_scroll).clamp(0.0, 1.0);
+                        let ratio = scroll_ratio(
+                            data.scroll_top(),
+                            data.scroll_height() as f64,
+                            data.client_height() as f64,
+                        );
 
                         if let Some(element) = preview_element() {
                             spawn(async move {
@@ -50,9 +53,11 @@ pub fn Split(props: SplitProps) -> Element {
                                     return;
                                 };
 
-                                let max_preview_scroll =
-                                    (scroll_size.height - client_rect.size.height).max(0.0);
-                                let target = max_preview_scroll * ratio;
+                                let target = scroll_target(
+                                    ratio,
+                                    scroll_size.height,
+                                    client_rect.size.height,
+                                );
 
                                 let _ = element
                                     .scroll(
@@ -68,14 +73,46 @@ pub fn Split(props: SplitProps) -> Element {
 
             div { class: "split-divider" }
 
-            section { class: "pane preview-pane",
+            section {
+                class: "pane preview-pane",
+                onmounted: move |event: MountedEvent| {
+                    preview_element.set(Some(event.data()));
+                },
                 Preview {
-                    rendered_html: props.rendered_html,
-                    on_mounted: move |event: MountedEvent| {
-                        preview_element.set(Some(event.data()));
-                    }
+                    rendered_html: props.rendered_html
                 }
             }
         }
+    }
+}
+
+fn scroll_ratio(scroll_top: f64, scroll_height: f64, client_height: f64) -> f64 {
+    let max_scroll = (scroll_height - client_height).max(1.0);
+
+    (scroll_top / max_scroll).clamp(0.0, 1.0)
+}
+
+fn scroll_target(ratio: f64, scroll_height: f64, client_height: f64) -> f64 {
+    let max_scroll = (scroll_height - client_height).max(0.0);
+
+    max_scroll * ratio.clamp(0.0, 1.0)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn scroll_ratio_clamps_to_scrollable_range() {
+        assert_eq!(scroll_ratio(50.0, 200.0, 100.0), 0.5);
+        assert_eq!(scroll_ratio(-20.0, 200.0, 100.0), 0.0);
+        assert_eq!(scroll_ratio(220.0, 200.0, 100.0), 1.0);
+    }
+
+    #[test]
+    fn scroll_target_maps_ratio_to_preview_scroll_range() {
+        assert_eq!(scroll_target(0.5, 600.0, 200.0), 200.0);
+        assert_eq!(scroll_target(2.0, 600.0, 200.0), 400.0);
+        assert_eq!(scroll_target(0.5, 200.0, 600.0), 0.0);
     }
 }

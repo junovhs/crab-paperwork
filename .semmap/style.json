@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-27T21:49:18Z",
+  "generated_at": "2026-04-27T22:00:58Z",
   "entries": [
     {
       "file": "src/storage/config.rs",
@@ -272,22 +272,22 @@
         "#[derive(Clone, PartialEq, Props)]",
         "pub struct PreviewProps {",
         "    pub rendered_html: String,",
-        "    pub on_mounted: EventHandler<MountedEvent>,",
         "}",
         "",
         "#[allow(non_snake_case)]",
         "pub fn Preview(props: PreviewProps) -> Element {",
-        "    let on_mounted = props.on_mounted;",
-        "",
         "    rsx! {",
         "        article {",
-        "            class: \"markdown-body preview-content\","
+        "            class: \"markdown-body preview-content\",",
+        "            dangerous_inner_html: \"{props.rendered_html}\"",
+        "        }",
+        "    }"
       ]
     },
     {
       "file": "src/ui/split.rs",
       "language": "rust",
-      "idiom_category": "general-idioms",
+      "idiom_category": "error-propagation",
       "excerpts": [
         "use dioxus::prelude::*;",
         "use dioxus_elements::geometry::PixelsVector2D;",

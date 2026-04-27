@@ -225,9 +225,9 @@ Exports: PreviewProps, Preview
 Semantic: pure computation
 
 `src/ui/split.rs`
-Implements split props. [COUPLING:pure]
+Implements split props. [COUPLING:mixed] [BEHAVIOR:panics-on-error] [QUALITY:error-boundary]
 Exports: SplitProps, Split
-Semantic: pure computation
+Semantic: side-effecting that panics on error
 
 `src/ui/status.rs`
 Implements status props. [COUPLING:pure]

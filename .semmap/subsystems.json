@@ -16,7 +16,7 @@
       "src/storage/config.rs"
     ],
     "internal_edge_density": 0.6666666666666666,
-    "external_callers": 11
+    "external_callers": 8
   },
   {
     "name": "config-2",
@@ -41,7 +41,7 @@
       "src/storage/config.rs"
     ],
     "internal_edge_density": 0.5,
-    "external_callers": 14
+    "external_callers": 11
   },
   {
     "name": "config-3",
@@ -77,17 +77,21 @@
       "src/ui.rs"
     ],
     "interface_symbols": [
+      "editor",
       "export",
       "markdown",
       "platform",
-      "pretext"
+      "pretext",
+      "preview",
+      "split",
+      "status"
     ],
     "hotspot_files": [
       "src/lib.rs",
       "src/ui.rs"
     ],
     "internal_edge_density": 0.5,
-    "external_callers": 5
+    "external_callers": 7
   },
   {
     "name": "session",
@@ -139,17 +143,21 @@
       "src/ui/editor.rs"
     ],
     "interface_symbols": [
+      "editor",
       "export",
       "markdown",
       "platform",
-      "pretext"
+      "pretext",
+      "preview",
+      "split",
+      "status"
     ],
     "hotspot_files": [
       "src/lib.rs",
       "src/ui.rs"
     ],
     "internal_edge_density": 0.5,
-    "external_callers": 4
+    "external_callers": 6
   },
   {
     "name": "config-4",
@@ -169,29 +177,6 @@
       "src/storage/config.rs"
     ],
     "internal_edge_density": 0.4166666666666667,
-    "external_callers": 13
-  },
-  {
-    "name": "lib-4",
-    "purpose": "Dense dependency cluster with 5 files.",
-    "files": [
-      "src/app.rs",
-      "src/lib.rs",
-      "src/ui.rs",
-      "src/ui/editor.rs",
-      "src/ui/split.rs"
-    ],
-    "interface_symbols": [
-      "export",
-      "markdown",
-      "platform",
-      "pretext"
-    ],
-    "hotspot_files": [
-      "src/lib.rs",
-      "src/ui.rs"
-    ],
-    "internal_edge_density": 0.35,
-    "external_callers": 5
+    "external_callers": 10
   }
 ]

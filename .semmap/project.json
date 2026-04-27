@@ -6,7 +6,7 @@
     "rust"
   ],
   "total_files": 39,
-  "total_lines": 2463,
+  "total_lines": 2519,
   "subsystems": [
     "config",
     "config-2",
@@ -15,26 +15,25 @@
     "session",
     "lib-2",
     "lib-3",
-    "config-4",
-    "lib-4"
+    "config-4"
   ],
   "entry_points": [
     "src/lib.rs",
     "src/main.rs"
   ],
-  "generated_at": "2026-04-27T21:49:17Z",
+  "generated_at": "2026-04-27T22:00:57Z",
   "omni_ast_version": "0.4.27",
   "file_hashes": {
     "Cargo.toml": "0260a55f83691da1a4638d3ca3c142616a30212f17c90238f4b8dd62c5ba30b0",
     "Dioxus.toml": "d1d9f18351d9257eab5347113b057dbd307aa18951c6dbd21841be8c475049b7",
     "README.md": "a8a8877d6c49e8e5684200a7fb8753239f742d23f06db3edbae418e1bff09c88",
-    "SEMMAP.md": "7cf90a955ad561591987ca82fc43e1097a69e2a10433a517ccc25381b43439db",
+    "SEMMAP.md": "1fab17e286931264110ac93a0eafcab4ec2f4044ac1cf14e5be7e3c917cea51b",
     "assets/github_markdown_dark.css": "28c954ac6e288b535aae46ec91c99ee844a3a86ae9fe7e918d662e6defe58e3b",
     "assets/github_markdown_light.css": "4dff607c8fcc53c882c6b6910c56e35bad674cf9dff1c4f56a1a64326210e00f",
     "assets/main.css": "e980408cc423e5095c923d412c1665f9e37babcf4d9d9ed045b4498bd5894016",
     "neti.toml": "3293f21882b85b07aeca19a1500db8f4d8a3fcb3a05c2f433b46c19d0e6fb15f",
     "rustfmt.toml": "902cf208b6d9f448a854e15084e3ceeabba652b05f18d7b2ce608dd85205ecfc",
-    "src/app.rs": "dbd91214ef3b3e1d6ebe082e57fb655ff76dc9e43be62d150cf2f2901ef58b94",
+    "src/app.rs": "7fea2ec250cacc0efa428db103f1972ec6475f771d43ad6b95f00ce4ce5f6519",
     "src/app/actions.rs": "e90caf955b593b916715ce0dd03a5350633958ae1d37c7340ba39aa1aedb8aed",
     "src/app/defaults.rs": "45e5f252e5093c58ee4d9de1105f76d8675d0a2c22e2693e70b4d02d032e0dda",
     "src/app/state.rs": "6989cc360fcaaf3d5f3916bd0b0abfa476e0a2fb98ffa019c0065d029712572d",
@@ -57,13 +56,13 @@
     "src/storage/session.rs": "232a87fd3a5601ebd2d9797c9a972b8288979bffb400a8278d8d6a309153c2bf",
     "src/ui.rs": "7da1ef9dd5ea79913ec9f25807637f167b4f44320312faaf5f61e0e015ac994a",
     "src/ui/editor.rs": "9b39bde4db44bb19e8dff91ec1598ef9be21153ba2bb49ab699be8b08479215f",
-    "src/ui/preview.rs": "bd5625e17be36417bec97b08544a71fd240a3f2ec3aa528d8b5750c78d242ea2",
-    "src/ui/split.rs": "58632b63ccc2fb8e5e71b93c06d58f90ed5b520ac005018bc4edd4d833a3b1f0",
+    "src/ui/preview.rs": "6c0e21766ee27e79d3b61e37a11ef61f6bcb7de3d48784e6d0c8744524f6769b",
+    "src/ui/split.rs": "9f482da9a49af9486cf6d6d2b5b97f9d7f049d871e9cb026886696f4355f3c3c",
     "src/ui/status.rs": "aa92cbe04c070b988aaf0170db1a70b833eea3f98e735004d8aab5fc6efa22aa",
     "src/ui/toolbar.rs": "9b8e45b419eab52d3fbadfa8af0f561f252c53620b47e823443112999daa448d",
     "tests/markdown_render.rs": "caa4210f576ad02de0f74154122127c3184c7e127576d3bd1296141573f33a6c",
     "tests/pretext_layout.rs": "1161500dd712614bb90300a081791e386af78a70239e887eaf1d752569b8b3b5",
     "tests/storage.rs": "8ee6a10c55301f9bea1b2a0d60d9a6ae7726b8cd161593aa838a8a2c20f2f7bf"
   },
-  "generated_at_commit": "56f86254f331b69fc8f514adb59401abb000a39d"
+  "generated_at_commit": "62ed0db1e00ad57fe6b6c0e937f3f3399d1d2de4"
 }

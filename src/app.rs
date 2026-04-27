@@ -18,6 +18,16 @@ const MARKDOWN_DARK_CSS: &str = include_str!("../assets/github_markdown_dark.css
 
 #[allow(non_snake_case)]
 pub fn App() -> Element {
+    rsx! {
+        document::Style { "{MAIN_CSS}" }
+        document::Style { "{MARKDOWN_LIGHT_CSS}" }
+        document::Style { "{MARKDOWN_DARK_CSS}" }
+        AppShell {}
+    }
+}
+
+#[allow(non_snake_case)]
+fn AppShell() -> Element {
     let mut app_state = use_signal(load_initial_state);
     let current = app_state();
 
@@ -25,10 +35,6 @@ pub fn App() -> Element {
     let dark_mode = matches!(current.theme, ThemeMode::Dark);
 
     rsx! {
-        document::Style { "{MAIN_CSS}" }
-        document::Style { "{MARKDOWN_LIGHT_CSS}" }
-        document::Style { "{MARKDOWN_DARK_CSS}" }
-
         div { class: "app-shell {theme_class}",
             Toolbar {
                 title: "Markdown Live Preview".to_string(),

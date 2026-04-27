@@ -32,7 +32,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::load_initial_state@155"
+      "fn::load_initial_state@161"
     ],
     "callees": [],
     "has_guard_coverage": false,
@@ -48,7 +48,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::persist_state@176",
+      "fn::persist_state@182",
       "fn::load_config@11",
       "fn::save_config@27",
       "fn::clamps_split_ratio_to_usable_bounds@4"
@@ -63,28 +63,42 @@
     "kind": "Function",
     "file": "src/app.rs",
     "start_line": 20,
-    "end_line": 153,
+    "end_line": 27,
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::AppShell@30",
+    "name": "AppShell",
+    "kind": "Function",
+    "file": "src/app.rs",
+    "start_line": 30,
+    "end_line": 159,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
     "callees": [
-      "fn::load_initial_state@155",
+      "fn::load_initial_state@161",
       "fn::css_class@19"
     ],
     "has_guard_coverage": true,
     "panic_sites": 0
   },
   {
-    "stable_id": "fn::load_initial_state@155",
+    "stable_id": "fn::load_initial_state@161",
     "name": "load_initial_state",
     "kind": "Function",
     "file": "src/app.rs",
-    "start_line": 155,
-    "end_line": 174,
+    "start_line": 161,
+    "end_line": 180,
     "visibility": "Private",
     "cognitive_complexity": 4,
     "callers": [
-      "fn::App@20"
+      "fn::AppShell@30"
     ],
     "callees": [
       "fn::initial_state@87",
@@ -98,12 +112,12 @@
     "panic_sites": 0
   },
   {
-    "stable_id": "fn::persist_state@176",
+    "stable_id": "fn::persist_state@182",
     "name": "persist_state",
     "kind": "Function",
     "file": "src/app.rs",
-    "start_line": 176,
-    "end_line": 193,
+    "start_line": 182,
+    "end_line": 199,
     "visibility": "Private",
     "cognitive_complexity": 0,
     "callers": [],
@@ -188,7 +202,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::load_initial_state@155"
+      "fn::load_initial_state@161"
     ],
     "callees": [
       "fn::render_markdown@5",
@@ -238,7 +252,7 @@
     "visibility": "Public",
     "cognitive_complexity": 1,
     "callers": [
-      "fn::persist_state@176"
+      "fn::persist_state@182"
     ],
     "callees": [],
     "has_guard_coverage": false,
@@ -254,7 +268,7 @@
     "visibility": "Public",
     "cognitive_complexity": 1,
     "callers": [
-      "fn::App@20"
+      "fn::AppShell@30"
     ],
     "callees": [],
     "has_guard_coverage": false,
@@ -270,7 +284,7 @@
     "visibility": "Public",
     "cognitive_complexity": 1,
     "callers": [
-      "fn::load_initial_state@155"
+      "fn::load_initial_state@161"
     ],
     "callees": [],
     "has_guard_coverage": false,
@@ -316,7 +330,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::persist_state@176",
+      "fn::persist_state@182",
       "fn::reduce@17",
       "fn::initial_state@87"
     ],
@@ -900,7 +914,7 @@
     "visibility": "Public",
     "cognitive_complexity": 1,
     "callers": [
-      "fn::load_initial_state@155"
+      "fn::load_initial_state@161"
     ],
     "callees": [
       "type::AppConfig@4",
@@ -920,7 +934,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::persist_state@176"
+      "fn::persist_state@182"
     ],
     "callees": [
       "type::AppConfig@4",
@@ -939,7 +953,7 @@
     "visibility": "Public",
     "cognitive_complexity": 1,
     "callers": [
-      "fn::load_initial_state@155"
+      "fn::load_initial_state@161"
     ],
     "callees": [
       "type::SessionState@4",
@@ -959,7 +973,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::persist_state@176"
+      "fn::persist_state@182"
     ],
     "callees": [
       "type::SessionState@4",
@@ -1121,7 +1135,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::persist_state@176",
+      "fn::persist_state@182",
       "fn::load_session@37",
       "fn::save_session@53"
     ],
@@ -1202,12 +1216,12 @@
     "panic_sites": 0
   },
   {
-    "stable_id": "fn::Preview@10",
+    "stable_id": "fn::Preview@9",
     "name": "Preview",
     "kind": "Function",
     "file": "src/ui/preview.rs",
-    "start_line": 10,
-    "end_line": 20,
+    "start_line": 9,
+    "end_line": 16,
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [],
@@ -1223,11 +1237,11 @@
     "kind": "Type",
     "file": "src/ui/preview.rs",
     "start_line": 4,
-    "end_line": 7,
+    "end_line": 6,
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::Preview@10"
+      "fn::Preview@9"
     ],
     "callees": [],
     "has_guard_coverage": false,
@@ -1239,7 +1253,7 @@
     "kind": "Function",
     "file": "src/ui/split.rs",
     "start_line": 17,
-    "end_line": 81,
+    "end_line": 87,
     "visibility": "Public",
     "cognitive_complexity": 2,
     "callers": [],
@@ -1247,7 +1261,63 @@
       "type::SplitProps@9"
     ],
     "has_guard_coverage": true,
-    "panic_sites": 0
+    "panic_sites": 6
+  },
+  {
+    "stable_id": "fn::scroll_ratio@89",
+    "name": "scroll_ratio",
+    "kind": "Function",
+    "file": "src/ui/split.rs",
+    "start_line": 89,
+    "end_line": 93,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 6
+  },
+  {
+    "stable_id": "fn::scroll_target@95",
+    "name": "scroll_target",
+    "kind": "Function",
+    "file": "src/ui/split.rs",
+    "start_line": 95,
+    "end_line": 99,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 6
+  },
+  {
+    "stable_id": "fn::scroll_ratio_clamps_to_scrollable_range@106",
+    "name": "scroll_ratio_clamps_to_scrollable_range",
+    "kind": "Function",
+    "file": "src/ui/split.rs",
+    "start_line": 106,
+    "end_line": 110,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 6
+  },
+  {
+    "stable_id": "fn::scroll_target_maps_ratio_to_preview_scroll_range@113",
+    "name": "scroll_target_maps_ratio_to_preview_scroll_range",
+    "kind": "Function",
+    "file": "src/ui/split.rs",
+    "start_line": 113,
+    "end_line": 117,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 6
   },
   {
     "stable_id": "type::SplitProps@9",
@@ -1263,7 +1333,7 @@
     ],
     "callees": [],
     "has_guard_coverage": true,
-    "panic_sites": 0
+    "panic_sites": 6
   },
   {
     "stable_id": "fn::Status@9",
@@ -1381,7 +1451,7 @@
     "visibility": "Public",
     "cognitive_complexity": 0,
     "callers": [
-      "fn::load_initial_state@155",
+      "fn::load_initial_state@161",
       "fn::reduce@17",
       "fn::initial_state@87",
       "fn::renders_basic_markdown@34",
