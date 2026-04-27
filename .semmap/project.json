@@ -21,13 +21,13 @@
     "src/lib.rs",
     "src/main.rs"
   ],
-  "generated_at": "2026-04-27T21:42:44Z",
+  "generated_at": "2026-04-27T21:43:36Z",
   "omni_ast_version": "0.4.27",
   "file_hashes": {
     "Cargo.toml": "81cc9ab92613da26ce976cbfb602d567071469a5cf5cf4efa9d1b04e800441ae",
     "Dioxus.toml": "d1d9f18351d9257eab5347113b057dbd307aa18951c6dbd21841be8c475049b7",
     "README.md": "222e6775702cefbf5f2881cc056d3c883e7076382fbc32f78c4255d409767d85",
-    "SEMMAP.md": "4f0003d8395e3545bf94fafcb640f11e1421c3b590b5bf2460cb9fbdef16da75",
+    "SEMMAP.md": "7cf90a955ad561591987ca82fc43e1097a69e2a10433a517ccc25381b43439db",
     "assets/github_markdown_dark.css": "28c954ac6e288b535aae46ec91c99ee844a3a86ae9fe7e918d662e6defe58e3b",
     "assets/github_markdown_light.css": "4dff607c8fcc53c882c6b6910c56e35bad674cf9dff1c4f56a1a64326210e00f",
     "assets/main.css": "e980408cc423e5095c923d412c1665f9e37babcf4d9d9ed045b4498bd5894016",
@@ -62,5 +62,5 @@
     "tests/markdown_render.rs": "caa4210f576ad02de0f74154122127c3184c7e127576d3bd1296141573f33a6c",
     "tests/storage.rs": "8ee6a10c55301f9bea1b2a0d60d9a6ae7726b8cd161593aa838a8a2c20f2f7bf"
   },
-  "generated_at_commit": "34437a2e3f70fbf7388bcc04b7bf10fb2af0c0ff"
+  "generated_at_commit": "8535b17504cf4e87d1770803b0c7036628803a79"
 }

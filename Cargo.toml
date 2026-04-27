@@ -16,6 +16,7 @@ anyhow = "1"
 thiserror = "2"
 arboard = "3"
 rfd = "0.15"
+unicode-segmentation = "1"
 
 [dev-dependencies]
 tempfile = "3"

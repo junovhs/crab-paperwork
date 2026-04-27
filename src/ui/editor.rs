@@ -1,5 +1,7 @@
 use dioxus::prelude::*;
 
+use crate::pretext::{layout, prepare, FontMetrics, PrepareOptions, WhiteSpace};
+
 #[derive(Clone, PartialEq, Props)]
 pub struct EditorProps {
     pub markdown: String,
@@ -12,9 +14,13 @@ pub fn Editor(props: EditorProps) -> Element {
     let on_change = props.on_change;
     let on_scroll = props.on_scroll;
     let line_numbers = line_numbers_for(&props.markdown);
+    let layout = editor_layout(&props.markdown);
 
     rsx! {
-        div { class: "editor-shell",
+        div {
+            class: "editor-shell",
+            "data-layout-lines": "{layout.line_count}",
+            "data-layout-height": "{layout.height}",
             pre { class: "line-gutter", "{line_numbers}" }
             textarea {
                 class: "markdown-editor",
@@ -30,6 +36,19 @@ pub fn Editor(props: EditorProps) -> Element {
             }
         }
     }
+}
+
+fn editor_layout(markdown: &str) -> crate::pretext::LayoutResult {
+    let prepared = prepare(
+        markdown,
+        FontMetrics::monospace(16.0),
+        PrepareOptions {
+            white_space: WhiteSpace::PreWrap,
+            ..PrepareOptions::default()
+        },
+    );
+
+    layout(&prepared, 760.0, 23.2)
 }
 
 fn line_numbers_for(markdown: &str) -> String {
