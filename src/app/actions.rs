@@ -1,10 +1,13 @@
 use crate::app::defaults;
 use crate::app::state::{AppState, ThemeMode};
 use crate::markdown;
+use std::path::PathBuf;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum AppAction {
     UpdateMarkdown(String),
+    OpenMarkdown { path: PathBuf, markdown: String },
+    SaveMarkdown { path: PathBuf },
     Reset,
     ToggleTheme,
     ToggleSyncScroll,
@@ -22,12 +25,32 @@ pub fn reduce(mut state: AppState, action: AppAction) -> AppState {
             state.notice = "Editing".to_string();
         }
 
+        AppAction::OpenMarkdown { path, markdown } => {
+            let rendered_html = markdown::render::render_markdown(&markdown);
+            let display = path.display().to_string();
+
+            state.markdown = markdown;
+            state.rendered_html = rendered_html;
+            state.current_file = Some(path);
+            state.dirty = false;
+            state.notice = format!("Opened {display}");
+        }
+
+        AppAction::SaveMarkdown { path } => {
+            let display = path.display().to_string();
+
+            state.current_file = Some(path);
+            state.dirty = false;
+            state.notice = format!("Saved {display}");
+        }
+
         AppAction::Reset => {
             let markdown_text = defaults::DEFAULT_MARKDOWN.to_string();
             let rendered_html = markdown::render::render_markdown(&markdown_text);
 
             state.markdown = markdown_text;
             state.rendered_html = rendered_html;
+            state.current_file = None;
             state.dirty = true;
             state.notice = "Reset to sample Markdown".to_string();
         }

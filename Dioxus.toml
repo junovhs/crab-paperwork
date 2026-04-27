@@ -1,0 +1,48 @@
+[application]
+
+# Desktop bundle output path.
+out_dir = "dist"
+
+# Static CSS assets used by the native desktop shell.
+asset_dir = "assets"
+
+[web.wasm_opt]
+# The level wasm-opt should target. z is the smallest. 4 is the fastest.
+level = "4"
+
+[web.app]
+
+# HTML title tag content
+title = "Dioxus | An elegant GUI library for Rust"
+
+[web.watcher]
+
+index_on_404 = true
+
+watch_path = ["src", "examples"]
+
+[bundle]
+# Bundle identifier
+identifier = "io.github.junovhs.crab-paperwork"
+
+# Bundle publisher
+publisher = "junovhs"
+
+# Bundle icon
+icon = ["icons/icon.ico"]
+
+# Bundle copyright
+copyright = "Copyright (c) 2026"
+
+# Bundle category
+category = "Utility"
+
+# Bundle short description
+short_description = "Native Markdown live preview for the desktop."
+
+# Bundle long description
+long_description = """
+Crab Paperwork is a small Rust and CSS native desktop app for editing Markdown
+with a live sanitized preview, local session persistence, and a simple
+markdownlivepreview.com-style split layout.
+"""

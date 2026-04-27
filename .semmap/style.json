@@ -1,0 +1,445 @@
+{
+  "generated_at": "2026-04-27T21:13:04Z",
+  "entries": [
+    {
+      "file": "src/storage/config.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use serde::{Deserialize, Serialize};",
+        "",
+        "#[derive(Clone, Debug, Deserialize, Serialize)]",
+        "pub struct AppConfig {",
+        "    pub theme: String,",
+        "    pub sync_scroll: bool,",
+        "    pub split_ratio: f32,",
+        "}",
+        "",
+        "impl Default for AppConfig {",
+        "    fn default() -> Self {",
+        "        Self {",
+        "            theme: \"light\".to_string(),",
+        "            sync_scroll: false,",
+        "            split_ratio: 0.5,"
+      ]
+    },
+    {
+      "file": "src/app.rs",
+      "language": "rust",
+      "idiom_category": "state-management",
+      "excerpts": [
+        "use dioxus::prelude::*;",
+        "",
+        "use crate::app::actions::{reduce, AppAction};",
+        "use crate::app::state::{AppState, ThemeMode};",
+        "use crate::storage::config::AppConfig;",
+        "use crate::storage::session::SessionState;",
+        "use crate::ui::split::Split;",
+        "use crate::ui::status::Status;",
+        "use crate::ui::toolbar::Toolbar;",
+        "",
+        "pub mod actions;",
+        "pub mod defaults;",
+        "pub mod state;",
+        "",
+        "static MAIN_CSS: Asset = asset!(\"/assets/main.css\");"
+      ]
+    },
+    {
+      "file": "src/app/actions.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use crate::app::defaults;",
+        "use crate::app::state::{AppState, ThemeMode};",
+        "use crate::markdown;",
+        "use std::path::PathBuf;",
+        "",
+        "#[derive(Clone, Debug, Eq, PartialEq)]",
+        "pub enum AppAction {",
+        "    UpdateMarkdown(String),",
+        "    OpenMarkdown { path: PathBuf, markdown: String },",
+        "    SaveMarkdown { path: PathBuf },",
+        "    Reset,",
+        "    ToggleTheme,",
+        "    ToggleSyncScroll,",
+        "    SetNotice(String),",
+        "}"
+      ]
+    },
+    {
+      "file": "src/app/state.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use serde::{Deserialize, Serialize};",
+        "use std::path::PathBuf;",
+        "",
+        "#[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]",
+        "pub enum ThemeMode {",
+        "    #[default]",
+        "    Light,",
+        "    Dark,",
+        "}",
+        "",
+        "impl ThemeMode {",
+        "    pub fn as_str(self) -> &'static str {",
+        "        match self {",
+        "            Self::Light => \"light\",",
+        "            Self::Dark => \"dark\","
+      ]
+    },
+    {
+      "file": "src/markdown/sanitize.rs",
+      "language": "rust",
+      "idiom_category": "error-propagation",
+      "excerpts": [
+        "use ammonia::Builder;",
+        "",
+        "pub fn sanitize_html(html: &str) -> String {",
+        "    Builder::default()",
+        "        .add_tags([",
+        "            \"article\",",
+        "            \"section\",",
+        "            \"header\",",
+        "            \"footer\",",
+        "            \"main\",",
+        "            \"figure\",",
+        "            \"figcaption\",",
+        "            \"details\",",
+        "            \"summary\",",
+        "            \"input\","
+      ]
+    },
+    {
+      "file": "src/platform/clipboard.rs",
+      "language": "rust",
+      "idiom_category": "error-propagation",
+      "excerpts": [
+        "use anyhow::{Context, Result};",
+        "use arboard::Clipboard;",
+        "",
+        "pub fn copy_text(text: &str) -> Result<()> {",
+        "    let mut clipboard = Clipboard::new().context(\"failed to open system clipboard\")?;",
+        "",
+        "    clipboard",
+        "        .set_text(text.to_string())",
+        "        .context(\"failed to copy text to clipboard\")?;",
+        "",
+        "    Ok(())",
+        "}"
+      ]
+    },
+    {
+      "file": "src/platform/dialogs.rs",
+      "language": "rust",
+      "idiom_category": "result-option-idiom",
+      "excerpts": [
+        "use std::path::PathBuf;",
+        "",
+        "use rfd::FileDialog;",
+        "",
+        "pub fn pick_markdown_open_path() -> Option<PathBuf> {",
+        "    FileDialog::new()",
+        "        .set_title(\"Open Markdown\")",
+        "        .add_filter(\"Markdown\", &[\"md\", \"markdown\", \"mdown\", \"mkd\"])",
+        "        .add_filter(\"Text\", &[\"txt\"])",
+        "        .pick_file()",
+        "}",
+        "",
+        "pub fn pick_markdown_save_path() -> Option<PathBuf> {",
+        "    FileDialog::new()",
+        "        .set_title(\"Save Markdown\")"
+      ]
+    },
+    {
+      "file": "src/platform/files.rs",
+      "language": "rust",
+      "idiom_category": "result-option-idiom",
+      "excerpts": [
+        "use anyhow::{Context, Result};",
+        "use std::fs;",
+        "use std::path::Path;",
+        "",
+        "pub fn read_markdown(path: impl AsRef<Path>) -> Result<String> {",
+        "    let path = path.as_ref();",
+        "",
+        "    fs::read_to_string(path)",
+        "        .with_context(|| format!(\"failed to read Markdown file: {}\", path.display()))",
+        "}",
+        "",
+        "pub fn write_markdown(path: impl AsRef<Path>, markdown: &str) -> Result<()> {",
+        "    let path = path.as_ref();",
+        "",
+        "    fs::write(path, markdown)"
+      ]
+    },
+    {
+      "file": "src/storage.rs",
+      "language": "rust",
+      "idiom_category": "error-propagation",
+      "excerpts": [
+        "pub mod config;",
+        "pub mod paths;",
+        "pub mod session;",
+        "",
+        "use anyhow::{Context, Result};",
+        "use std::fs;",
+        "",
+        "use config::AppConfig;",
+        "use session::SessionState;",
+        "",
+        "pub fn load_config() -> Result<AppConfig> {",
+        "    let path = paths::config_file()?;",
+        "",
+        "    if !path.exists() {",
+        "        return Ok(AppConfig::default());"
+      ]
+    },
+    {
+      "file": "src/storage/paths.rs",
+      "language": "rust",
+      "idiom_category": "error-propagation",
+      "excerpts": [
+        "use anyhow::{Context, Result};",
+        "use directories::ProjectDirs;",
+        "use std::fs;",
+        "use std::path::PathBuf;",
+        "",
+        "const QUALIFIER: &str = \"dev\";",
+        "const ORGANIZATION: &str = \"CrabPaperwork\";",
+        "const APPLICATION: &str = \"Crab Paperwork\";",
+        "",
+        "pub fn project_dirs() -> Result<ProjectDirs> {",
+        "    ProjectDirs::from(QUALIFIER, ORGANIZATION, APPLICATION)",
+        "        .context(\"could not determine platform app directories\")",
+        "}",
+        "",
+        "pub fn config_dir() -> Result<PathBuf> {"
+      ]
+    },
+    {
+      "file": "src/ui/editor.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use dioxus::prelude::*;",
+        "",
+        "#[derive(Clone, PartialEq, Props)]",
+        "pub struct EditorProps {",
+        "    pub markdown: String,",
+        "    pub on_change: EventHandler<String>,",
+        "    pub on_scroll: EventHandler<ScrollEvent>,",
+        "}",
+        "",
+        "#[allow(non_snake_case)]",
+        "pub fn Editor(props: EditorProps) -> Element {",
+        "    let on_change = props.on_change;",
+        "    let on_scroll = props.on_scroll;",
+        "",
+        "    rsx! {"
+      ]
+    },
+    {
+      "file": "src/ui/preview.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use dioxus::prelude::*;",
+        "",
+        "#[derive(Clone, PartialEq, Props)]",
+        "pub struct PreviewProps {",
+        "    pub rendered_html: String,",
+        "    pub on_mounted: EventHandler<MountedEvent>,",
+        "}",
+        "",
+        "#[allow(non_snake_case)]",
+        "pub fn Preview(props: PreviewProps) -> Element {",
+        "    let on_mounted = props.on_mounted;",
+        "",
+        "    rsx! {",
+        "        article {",
+        "            class: \"markdown-body preview-content\","
+      ]
+    },
+    {
+      "file": "src/ui/split.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use dioxus::prelude::*;",
+        "use dioxus_elements::geometry::PixelsVector2D;",
+        "use std::rc::Rc;",
+        "",
+        "use crate::ui::editor::Editor;",
+        "use crate::ui::preview::Preview;",
+        "",
+        "#[derive(Clone, PartialEq, Props)]",
+        "pub struct SplitProps {",
+        "    pub markdown: String,",
+        "    pub rendered_html: String,",
+        "    pub sync_scroll: bool,",
+        "    pub on_markdown_change: EventHandler<String>,",
+        "}",
+        ""
+      ]
+    },
+    {
+      "file": "src/ui/status.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use dioxus::prelude::*;",
+        "",
+        "#[derive(Clone, PartialEq, Props)]",
+        "pub struct StatusProps {",
+        "    pub notice: String,",
+        "}",
+        "",
+        "#[allow(non_snake_case)]",
+        "pub fn Status(props: StatusProps) -> Element {",
+        "    rsx! {",
+        "        footer { class: \"statusbar\",",
+        "            \"{props.notice}\"",
+        "        }",
+        "    }",
+        "}"
+      ]
+    },
+    {
+      "file": "src/ui/toolbar.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use dioxus::prelude::*;",
+        "",
+        "#[derive(Clone, PartialEq, Props)]",
+        "pub struct ToolbarProps {",
+        "    pub title: String,",
+        "    pub sync_scroll: bool,",
+        "    pub dark_mode: bool,",
+        "    pub on_open: EventHandler<()>,",
+        "    pub on_save: EventHandler<()>,",
+        "    pub on_reset: EventHandler<()>,",
+        "    pub on_copy: EventHandler<()>,",
+        "    pub on_export: EventHandler<()>,",
+        "    pub on_toggle_sync_scroll: EventHandler<()>,",
+        "    pub on_toggle_theme: EventHandler<()>,",
+        "}"
+      ]
+    },
+    {
+      "file": "src/export/html.rs",
+      "language": "rust",
+      "idiom_category": "result-option-idiom",
+      "excerpts": [
+        "use anyhow::{Context, Result};",
+        "use std::fs;",
+        "use std::path::Path;",
+        "",
+        "pub fn save_html(",
+        "    path: impl AsRef<Path>,",
+        "    title: &str,",
+        "    body_html: &str,",
+        "    light_css: &str,",
+        ") -> Result<()> {",
+        "    let path = path.as_ref();",
+        "    let document = format!(",
+        "        r#\"<!doctype html>",
+        "<html lang=\"en\">",
+        "<head>"
+      ]
+    },
+    {
+      "file": "src/export/pdf.rs",
+      "language": "rust",
+      "idiom_category": "result-option-idiom",
+      "excerpts": [
+        "use anyhow::{bail, Result};",
+        "use std::path::Path;",
+        "",
+        "pub fn save_pdf(_path: impl AsRef<Path>, _title: &str, _body_html: &str, _css: &str) -> Result<()> {",
+        "    bail!(",
+        "        \"PDF export is not implemented yet. It must be implemented Rust-side; no JavaScript exporter.\"",
+        "    )",
+        "}"
+      ]
+    },
+    {
+      "file": "src/markdown/render.rs",
+      "language": "rust",
+      "idiom_category": "error-propagation",
+      "excerpts": [
+        "use pulldown_cmark::{html, Options, Parser};",
+        "",
+        "use crate::markdown::sanitize;",
+        "",
+        "pub fn render_markdown(markdown: &str) -> String {",
+        "    let unsafe_html = render_markdown_without_sanitizing(markdown);",
+        "    sanitize::sanitize_html(&unsafe_html)",
+        "}",
+        "",
+        "fn render_markdown_without_sanitizing(markdown: &str) -> String {",
+        "    let mut options = Options::empty();",
+        "",
+        "    options.insert(Options::ENABLE_TABLES);",
+        "    options.insert(Options::ENABLE_FOOTNOTES);",
+        "    options.insert(Options::ENABLE_STRIKETHROUGH);"
+      ]
+    },
+    {
+      "file": "src/main.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "fn main() {",
+        "    dioxus::launch(crab_paperwork::app::App);",
+        "}"
+      ]
+    },
+    {
+      "file": "tests/markdown_render.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use crab_paperwork::markdown::render::render_markdown;",
+        "",
+        "#[test]",
+        "fn renders_tables_and_task_lists() {",
+        "    let markdown = \"- [x] Done\\n\\n| A | B |\\n|---|---|\\n| 1 | 2 |\";",
+        "    let html = render_markdown(markdown);",
+        "",
+        "    assert!(html.contains(r#\"type=\"checkbox\"\"#));",
+        "    assert!(html.contains(\"checked\"));",
+        "    assert!(html.contains(\"disabled\"));",
+        "    assert!(html.contains(\"<table>\"));",
+        "    assert!(html.contains(\"<td>1</td>\"));",
+        "}",
+        "",
+        "#[test]"
+      ]
+    },
+    {
+      "file": "tests/storage.rs",
+      "language": "rust",
+      "idiom_category": "general-idioms",
+      "excerpts": [
+        "use crab_paperwork::storage::config::AppConfig;",
+        "",
+        "#[test]",
+        "fn clamps_split_ratio_to_usable_bounds() {",
+        "    let too_small = AppConfig {",
+        "        split_ratio: 0.05,",
+        "        ..AppConfig::default()",
+        "    };",
+        "    let too_large = AppConfig {",
+        "        split_ratio: 0.95,",
+        "        ..AppConfig::default()",
+        "    };",
+        "",
+        "    assert_eq!(too_small.normalized_split_ratio(), 0.2);",
+        "    assert_eq!(too_large.normalized_split_ratio(), 0.8);"
+      ]
+    }
+  ]
+}

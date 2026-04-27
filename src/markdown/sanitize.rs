@@ -12,18 +12,12 @@ pub fn sanitize_html(html: &str) -> String {
             "figcaption",
             "details",
             "summary",
+            "input",
             "mark",
             "kbd",
             "samp",
         ])
-        .add_generic_attributes([
-            "class",
-            "id",
-            "title",
-            "aria-label",
-            "aria-hidden",
-            "role",
-        ])
+        .add_generic_attributes(["class", "id", "title", "aria-label", "aria-hidden", "role"])
         .add_tag_attributes(
             "input",
             [

@@ -34,6 +34,53 @@ pub fn App() -> Element {
                 title: "Crab Paperwork".to_string(),
                 sync_scroll: current.sync_scroll,
                 dark_mode,
+                on_open: move |_| {
+                    let mut next = app_state();
+
+                    let message = match crate::platform::dialogs::pick_markdown_open_path() {
+                        Some(path) => match crate::platform::files::read_markdown(&path) {
+                            Ok(markdown) => {
+                                next = reduce(next, AppAction::OpenMarkdown { path, markdown });
+                                persist_state(&next);
+                                app_state.set(next);
+                                return;
+                            }
+                            Err(error) => format!("{error:#}"),
+                        },
+                        None => "Open canceled".to_string(),
+                    };
+
+                    next = reduce(next, AppAction::SetNotice(message));
+                    persist_state(&next);
+                    app_state.set(next);
+                },
+                on_save: move |_| {
+                    let mut next = app_state();
+                    let save_path = next
+                        .current_file
+                        .clone()
+                        .or_else(crate::platform::dialogs::pick_markdown_save_path);
+
+                    let message = match save_path {
+                        Some(path) => match crate::platform::files::write_markdown(
+                            &path,
+                            &next.markdown,
+                        ) {
+                            Ok(()) => {
+                                next = reduce(next, AppAction::SaveMarkdown { path });
+                                persist_state(&next);
+                                app_state.set(next);
+                                return;
+                            }
+                            Err(error) => format!("{error:#}"),
+                        },
+                        None => "Save canceled".to_string(),
+                    };
+
+                    next = reduce(next, AppAction::SetNotice(message));
+                    persist_state(&next);
+                    app_state.set(next);
+                },
                 on_reset: move |_| {
                     let next = reduce(app_state(), AppAction::Reset);
                     persist_state(&next);
@@ -51,14 +98,14 @@ pub fn App() -> Element {
                     persist_state(&next);
                     app_state.set(next);
                 },
-                on_export_pdf: move |_| {
+                on_export: move |_| {
                     let mut next = app_state();
 
-                    let message = match crate::platform::dialogs::pick_pdf_save_path() {
+                    let message = match crate::platform::dialogs::pick_export_html_save_path() {
                         Some(path) => {
                             let css = include_str!("../assets/github_markdown_light.css");
 
-                            match crate::export::pdf::save_pdf(
+                            match crate::export::html::save_html(
                                 &path,
                                 "Crab Paperwork Preview",
                                 &next.rendered_html,
@@ -90,6 +137,7 @@ pub fn App() -> Element {
             Split {
                 markdown: current.markdown,
                 rendered_html: current.rendered_html,
+                sync_scroll: current.sync_scroll,
                 on_markdown_change: move |value| {
                     let next = reduce(app_state(), AppAction::UpdateMarkdown(value));
                     persist_state(&next);
@@ -108,7 +156,7 @@ fn load_initial_state() -> AppState {
     let mut state = actions::initial_state();
 
     if let Ok(config) = crate::storage::load_config() {
-        state.theme = ThemeMode::from_str(&config.theme);
+        state.theme = ThemeMode::from_config_value(&config.theme);
         state.sync_scroll = config.sync_scroll;
         state.split_ratio = config.normalized_split_ratio();
     }
@@ -118,6 +166,8 @@ fn load_initial_state() -> AppState {
             state.markdown = session.last_markdown;
             state.rendered_html = crate::markdown::render::render_markdown(&state.markdown);
         }
+
+        state.current_file = session.current_file.map(Into::into);
     }
 
     state
@@ -132,6 +182,10 @@ fn persist_state(state: &AppState) {
 
     let session = SessionState {
         last_markdown: state.markdown.clone(),
+        current_file: state
+            .current_file
+            .as_ref()
+            .map(|path| path.display().to_string()),
     };
 
     let _ = crate::storage::save_config(&config);

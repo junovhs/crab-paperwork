@@ -1,10 +1,3 @@
-mod app;
-mod export;
-mod markdown;
-mod platform;
-mod storage;
-mod ui;
-
 fn main() {
-    dioxus::launch(app::App);
+    dioxus::launch(crab_paperwork::app::App);
 }

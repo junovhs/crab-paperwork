@@ -1,0 +1,1039 @@
+[
+  {
+    "stable_id": "fn::default@11",
+    "name": "default",
+    "kind": "Function",
+    "file": "src/storage/config.rs",
+    "start_line": 11,
+    "end_line": 17,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::initial_state@87",
+      "fn::sanitize_html@3",
+      "fn::load_config@11",
+      "fn::load_session@37",
+      "fn::clamps_split_ratio_to_usable_bounds@4"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::normalized_split_ratio@21",
+    "name": "normalized_split_ratio",
+    "kind": "Function",
+    "file": "src/storage/config.rs",
+    "start_line": 21,
+    "end_line": 23,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::load_initial_state@155"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::AppConfig@4",
+    "name": "AppConfig",
+    "kind": "Type",
+    "file": "src/storage/config.rs",
+    "start_line": 4,
+    "end_line": 8,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::persist_state@176",
+      "fn::load_config@11",
+      "fn::save_config@27",
+      "fn::clamps_split_ratio_to_usable_bounds@4"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::App@20",
+    "name": "App",
+    "kind": "Function",
+    "file": "src/app.rs",
+    "start_line": 20,
+    "end_line": 153,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::load_initial_state@155",
+      "fn::css_class@19"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::load_initial_state@155",
+    "name": "load_initial_state",
+    "kind": "Function",
+    "file": "src/app.rs",
+    "start_line": 155,
+    "end_line": 174,
+    "visibility": "Private",
+    "cognitive_complexity": 4,
+    "callers": [
+      "fn::App@20"
+    ],
+    "callees": [
+      "fn::initial_state@87",
+      "fn::load_config@11",
+      "fn::from_config_value@26",
+      "fn::normalized_split_ratio@21",
+      "fn::load_session@37",
+      "fn::render_markdown@5"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::persist_state@176",
+    "name": "persist_state",
+    "kind": "Function",
+    "file": "src/app.rs",
+    "start_line": 176,
+    "end_line": 193,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "type::AppState@35",
+      "type::AppConfig@4",
+      "fn::as_str@12",
+      "type::SessionState@4",
+      "fn::save_config@27",
+      "fn::save_session@53"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "static::MAIN_CSS@15",
+    "name": "MAIN_CSS",
+    "kind": "Static",
+    "file": "src/app.rs",
+    "start_line": 15,
+    "end_line": 15,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "static::MARKDOWN_LIGHT_CSS@16",
+    "name": "MARKDOWN_LIGHT_CSS",
+    "kind": "Static",
+    "file": "src/app.rs",
+    "start_line": 16,
+    "end_line": 16,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "static::MARKDOWN_DARK_CSS@17",
+    "name": "MARKDOWN_DARK_CSS",
+    "kind": "Static",
+    "file": "src/app.rs",
+    "start_line": 17,
+    "end_line": 17,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::reduce@17",
+    "name": "reduce",
+    "kind": "Function",
+    "file": "src/app/actions.rs",
+    "start_line": 17,
+    "end_line": 85,
+    "visibility": "Public",
+    "cognitive_complexity": 6,
+    "callers": [],
+    "callees": [
+      "type::AppState@35",
+      "type::AppAction@7",
+      "fn::render_markdown@5"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::initial_state@87",
+    "name": "initial_state",
+    "kind": "Function",
+    "file": "src/app/actions.rs",
+    "start_line": 87,
+    "end_line": 96,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::load_initial_state@155"
+    ],
+    "callees": [
+      "fn::render_markdown@5",
+      "type::AppState@35",
+      "fn::default@11"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::AppAction@7",
+    "name": "AppAction",
+    "kind": "Type",
+    "file": "src/app/actions.rs",
+    "start_line": 7,
+    "end_line": 15,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::reduce@17"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "const::DEFAULT_MARKDOWN@1",
+    "name": "DEFAULT_MARKDOWN",
+    "kind": "Constant",
+    "file": "src/app/defaults.rs",
+    "start_line": 1,
+    "end_line": 67,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::as_str@12",
+    "name": "as_str",
+    "kind": "Function",
+    "file": "src/app/state.rs",
+    "start_line": 12,
+    "end_line": 17,
+    "visibility": "Public",
+    "cognitive_complexity": 1,
+    "callers": [
+      "fn::persist_state@176"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::css_class@19",
+    "name": "css_class",
+    "kind": "Function",
+    "file": "src/app/state.rs",
+    "start_line": 19,
+    "end_line": 24,
+    "visibility": "Public",
+    "cognitive_complexity": 1,
+    "callers": [
+      "fn::App@20"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::from_config_value@26",
+    "name": "from_config_value",
+    "kind": "Function",
+    "file": "src/app/state.rs",
+    "start_line": 26,
+    "end_line": 31,
+    "visibility": "Public",
+    "cognitive_complexity": 1,
+    "callers": [
+      "fn::load_initial_state@155"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::default@47",
+    "name": "default",
+    "kind": "Function",
+    "file": "src/app/state.rs",
+    "start_line": 47,
+    "end_line": 58,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::ThemeMode@5",
+    "name": "ThemeMode",
+    "kind": "Type",
+    "file": "src/app/state.rs",
+    "start_line": 5,
+    "end_line": 9,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "type::AppState@35"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::AppState@35",
+    "name": "AppState",
+    "kind": "Type",
+    "file": "src/app/state.rs",
+    "start_line": 35,
+    "end_line": 44,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::persist_state@176",
+      "fn::reduce@17",
+      "fn::initial_state@87"
+    ],
+    "callees": [
+      "type::ThemeMode@5"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::sanitize_html@3",
+    "name": "sanitize_html",
+    "kind": "Function",
+    "file": "src/markdown/sanitize.rs",
+    "start_line": 3,
+    "end_line": 36,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::strips_script_tags@43",
+      "fn::preserves_markdown_classes@52",
+      "fn::render_markdown@5"
+    ],
+    "callees": [
+      "fn::default@11"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::strips_script_tags@43",
+    "name": "strips_script_tags",
+    "kind": "Function",
+    "file": "src/markdown/sanitize.rs",
+    "start_line": 43,
+    "end_line": 49,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::sanitize_html@3"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::preserves_markdown_classes@52",
+    "name": "preserves_markdown_classes",
+    "kind": "Function",
+    "file": "src/markdown/sanitize.rs",
+    "start_line": 52,
+    "end_line": 56,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::sanitize_html@3"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::copy_text@4",
+    "name": "copy_text",
+    "kind": "Function",
+    "file": "src/platform/clipboard.rs",
+    "start_line": 4,
+    "end_line": 12,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::pick_markdown_open_path@5",
+    "name": "pick_markdown_open_path",
+    "kind": "Function",
+    "file": "src/platform/dialogs.rs",
+    "start_line": 5,
+    "end_line": 11,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::pick_markdown_save_path@13",
+    "name": "pick_markdown_save_path",
+    "kind": "Function",
+    "file": "src/platform/dialogs.rs",
+    "start_line": 13,
+    "end_line": 19,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::pick_export_html_save_path@21",
+    "name": "pick_export_html_save_path",
+    "kind": "Function",
+    "file": "src/platform/dialogs.rs",
+    "start_line": 21,
+    "end_line": 27,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::read_markdown@5",
+    "name": "read_markdown",
+    "kind": "Function",
+    "file": "src/platform/files.rs",
+    "start_line": 5,
+    "end_line": 10,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::write_markdown@12",
+    "name": "write_markdown",
+    "kind": "Function",
+    "file": "src/platform/files.rs",
+    "start_line": 12,
+    "end_line": 17,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::load_config@11",
+    "name": "load_config",
+    "kind": "Function",
+    "file": "src/storage.rs",
+    "start_line": 11,
+    "end_line": 25,
+    "visibility": "Public",
+    "cognitive_complexity": 1,
+    "callers": [
+      "fn::load_initial_state@155"
+    ],
+    "callees": [
+      "type::AppConfig@4",
+      "fn::config_file@35",
+      "fn::default@11"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::save_config@27",
+    "name": "save_config",
+    "kind": "Function",
+    "file": "src/storage.rs",
+    "start_line": 27,
+    "end_line": 35,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::persist_state@176"
+    ],
+    "callees": [
+      "type::AppConfig@4",
+      "fn::config_file@35"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::load_session@37",
+    "name": "load_session",
+    "kind": "Function",
+    "file": "src/storage.rs",
+    "start_line": 37,
+    "end_line": 51,
+    "visibility": "Public",
+    "cognitive_complexity": 1,
+    "callers": [
+      "fn::load_initial_state@155"
+    ],
+    "callees": [
+      "type::SessionState@4",
+      "fn::session_file@39",
+      "fn::default@11"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::save_session@53",
+    "name": "save_session",
+    "kind": "Function",
+    "file": "src/storage.rs",
+    "start_line": 53,
+    "end_line": 61,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::persist_state@176"
+    ],
+    "callees": [
+      "type::SessionState@4",
+      "fn::session_file@39"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::project_dirs@10",
+    "name": "project_dirs",
+    "kind": "Function",
+    "file": "src/storage/paths.rs",
+    "start_line": 10,
+    "end_line": 13,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::config_dir@15",
+      "fn::data_dir@25"
+    ],
+    "callees": [
+      "const::QUALIFIER@6",
+      "const::ORGANIZATION@7",
+      "const::APPLICATION@8"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::config_dir@15",
+    "name": "config_dir",
+    "kind": "Function",
+    "file": "src/storage/paths.rs",
+    "start_line": 15,
+    "end_line": 23,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::config_file@35"
+    ],
+    "callees": [
+      "fn::project_dirs@10"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::data_dir@25",
+    "name": "data_dir",
+    "kind": "Function",
+    "file": "src/storage/paths.rs",
+    "start_line": 25,
+    "end_line": 33,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::session_file@39"
+    ],
+    "callees": [
+      "fn::project_dirs@10"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::config_file@35",
+    "name": "config_file",
+    "kind": "Function",
+    "file": "src/storage/paths.rs",
+    "start_line": 35,
+    "end_line": 37,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::load_config@11",
+      "fn::save_config@27"
+    ],
+    "callees": [
+      "fn::config_dir@15"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::session_file@39",
+    "name": "session_file",
+    "kind": "Function",
+    "file": "src/storage/paths.rs",
+    "start_line": 39,
+    "end_line": 41,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::load_session@37",
+      "fn::save_session@53"
+    ],
+    "callees": [
+      "fn::data_dir@25"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "const::QUALIFIER@6",
+    "name": "QUALIFIER",
+    "kind": "Constant",
+    "file": "src/storage/paths.rs",
+    "start_line": 6,
+    "end_line": 6,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::project_dirs@10"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "const::ORGANIZATION@7",
+    "name": "ORGANIZATION",
+    "kind": "Constant",
+    "file": "src/storage/paths.rs",
+    "start_line": 7,
+    "end_line": 7,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::project_dirs@10"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "const::APPLICATION@8",
+    "name": "APPLICATION",
+    "kind": "Constant",
+    "file": "src/storage/paths.rs",
+    "start_line": 8,
+    "end_line": 8,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::project_dirs@10"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::SessionState@4",
+    "name": "SessionState",
+    "kind": "Type",
+    "file": "src/storage/session.rs",
+    "start_line": 4,
+    "end_line": 7,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::persist_state@176",
+      "fn::load_session@37",
+      "fn::save_session@53"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::Editor@11",
+    "name": "Editor",
+    "kind": "Function",
+    "file": "src/ui/editor.rs",
+    "start_line": 11,
+    "end_line": 29,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "type::EditorProps@4"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::EditorProps@4",
+    "name": "EditorProps",
+    "kind": "Type",
+    "file": "src/ui/editor.rs",
+    "start_line": 4,
+    "end_line": 8,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Editor@11"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::Preview@10",
+    "name": "Preview",
+    "kind": "Function",
+    "file": "src/ui/preview.rs",
+    "start_line": 10,
+    "end_line": 20,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "type::PreviewProps@4"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::PreviewProps@4",
+    "name": "PreviewProps",
+    "kind": "Type",
+    "file": "src/ui/preview.rs",
+    "start_line": 4,
+    "end_line": 7,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Preview@10"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::Split@17",
+    "name": "Split",
+    "kind": "Function",
+    "file": "src/ui/split.rs",
+    "start_line": 17,
+    "end_line": 81,
+    "visibility": "Public",
+    "cognitive_complexity": 2,
+    "callers": [],
+    "callees": [
+      "type::SplitProps@9"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::SplitProps@9",
+    "name": "SplitProps",
+    "kind": "Type",
+    "file": "src/ui/split.rs",
+    "start_line": 9,
+    "end_line": 14,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Split@17"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::Status@9",
+    "name": "Status",
+    "kind": "Function",
+    "file": "src/ui/status.rs",
+    "start_line": 9,
+    "end_line": 15,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "type::StatusProps@4"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::StatusProps@4",
+    "name": "StatusProps",
+    "kind": "Type",
+    "file": "src/ui/status.rs",
+    "start_line": 4,
+    "end_line": 6,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Status@9"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::Toolbar@18",
+    "name": "Toolbar",
+    "kind": "Function",
+    "file": "src/ui/toolbar.rs",
+    "start_line": 18,
+    "end_line": 82,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "type::ToolbarProps@4"
+    ],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "type::ToolbarProps@4",
+    "name": "ToolbarProps",
+    "kind": "Type",
+    "file": "src/ui/toolbar.rs",
+    "start_line": 4,
+    "end_line": 15,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::Toolbar@18"
+    ],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::save_html@5",
+    "name": "save_html",
+    "kind": "Function",
+    "file": "src/export/html.rs",
+    "start_line": 5,
+    "end_line": 38,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::escape_html@40",
+    "name": "escape_html",
+    "kind": "Function",
+    "file": "src/export/html.rs",
+    "start_line": 40,
+    "end_line": 46,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::save_pdf@4",
+    "name": "save_pdf",
+    "kind": "Function",
+    "file": "src/export/pdf.rs",
+    "start_line": 4,
+    "end_line": 8,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::render_markdown@5",
+    "name": "render_markdown",
+    "kind": "Function",
+    "file": "src/markdown/render.rs",
+    "start_line": 5,
+    "end_line": 8,
+    "visibility": "Public",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::load_initial_state@155",
+      "fn::reduce@17",
+      "fn::initial_state@87",
+      "fn::renders_basic_markdown@34",
+      "fn::renders_tables@42",
+      "fn::renders_tables_and_task_lists@4",
+      "fn::sanitizes_script_and_event_attributes@16"
+    ],
+    "callees": [
+      "fn::render_markdown_without_sanitizing@10",
+      "fn::sanitize_html@3"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::render_markdown_without_sanitizing@10",
+    "name": "render_markdown_without_sanitizing",
+    "kind": "Function",
+    "file": "src/markdown/render.rs",
+    "start_line": 10,
+    "end_line": 27,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [
+      "fn::render_markdown@5"
+    ],
+    "callees": [],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::renders_basic_markdown@34",
+    "name": "renders_basic_markdown",
+    "kind": "Function",
+    "file": "src/markdown/render.rs",
+    "start_line": 34,
+    "end_line": 39,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::render_markdown@5"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::renders_tables@42",
+    "name": "renders_tables",
+    "kind": "Function",
+    "file": "src/markdown/render.rs",
+    "start_line": 42,
+    "end_line": 48,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::render_markdown@5"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 4
+  },
+  {
+    "stable_id": "fn::main@1",
+    "name": "main",
+    "kind": "Function",
+    "file": "src/main.rs",
+    "start_line": 1,
+    "end_line": 3,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [],
+    "has_guard_coverage": false,
+    "panic_sites": 0
+  },
+  {
+    "stable_id": "fn::renders_tables_and_task_lists@4",
+    "name": "renders_tables_and_task_lists",
+    "kind": "Function",
+    "file": "tests/markdown_render.rs",
+    "start_line": 4,
+    "end_line": 13,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::render_markdown@5"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 9
+  },
+  {
+    "stable_id": "fn::sanitizes_script_and_event_attributes@16",
+    "name": "sanitizes_script_and_event_attributes",
+    "kind": "Function",
+    "file": "tests/markdown_render.rs",
+    "start_line": 16,
+    "end_line": 24,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "fn::render_markdown@5"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 9
+  },
+  {
+    "stable_id": "fn::clamps_split_ratio_to_usable_bounds@4",
+    "name": "clamps_split_ratio_to_usable_bounds",
+    "kind": "Function",
+    "file": "tests/storage.rs",
+    "start_line": 4,
+    "end_line": 16,
+    "visibility": "Private",
+    "cognitive_complexity": 0,
+    "callers": [],
+    "callees": [
+      "type::AppConfig@4",
+      "fn::default@11"
+    ],
+    "has_guard_coverage": true,
+    "panic_sites": 2
+  }
+]

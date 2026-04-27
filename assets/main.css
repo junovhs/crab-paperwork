@@ -5,7 +5,9 @@ body,
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, freesans, clean, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 * {
@@ -30,11 +32,11 @@ body,
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    min-height: 36px;
+    min-height: 34px;
     padding: 8px 16px;
     background: #444;
     color: #fff;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .theme-dark .topbar {
@@ -47,10 +49,12 @@ body,
     align-items: center;
     gap: 16px;
     width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
 
 .brand {
-    font-weight: 700;
+    font-weight: 400;
     white-space: nowrap;
 }
 
@@ -75,6 +79,10 @@ body,
     user-select: none;
 }
 
+.menu-check input {
+    margin: 0 4px 0 0;
+}
+
 .split-shell {
     flex: 1 1 auto;
     display: flex;
@@ -91,6 +99,7 @@ body,
 .editor-pane {
     flex: 1 1 50%;
     background: #fff;
+    border-right: 0;
 }
 
 .preview-pane {
@@ -105,9 +114,14 @@ body,
 }
 
 .split-divider {
-    flex: 0 0 6px;
+    flex: 0 0 5px;
     cursor: col-resize;
-    background: #ddd;
+    background: #ccc;
+}
+
+.split-divider:hover,
+.sync-scroll .split-divider:hover {
+    background: #999;
 }
 
 .theme-dark .split-divider {
@@ -122,7 +136,7 @@ body,
     border: 0;
     outline: 0;
     resize: none;
-    padding: 24px;
+    padding: 12px 16px 16px;
     font-family:
         ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
         monospace;
@@ -146,13 +160,13 @@ body,
 
 .preview-content {
     min-height: 100%;
-    padding: 24px;
+    padding: 8px 16px 16px;
 }
 
 .statusbar {
     flex: 0 0 auto;
     min-height: 24px;
-    padding: 4px 12px;
+    padding: 4px 16px;
     border-top: 1px solid #e5e5e5;
     font-size: 12px;
     color: #666;

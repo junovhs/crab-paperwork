@@ -5,18 +5,22 @@ pub struct ToolbarProps {
     pub title: String,
     pub sync_scroll: bool,
     pub dark_mode: bool,
+    pub on_open: EventHandler<()>,
+    pub on_save: EventHandler<()>,
     pub on_reset: EventHandler<()>,
     pub on_copy: EventHandler<()>,
-    pub on_export_pdf: EventHandler<()>,
+    pub on_export: EventHandler<()>,
     pub on_toggle_sync_scroll: EventHandler<()>,
     pub on_toggle_theme: EventHandler<()>,
 }
 
 #[allow(non_snake_case)]
 pub fn Toolbar(props: ToolbarProps) -> Element {
+    let on_open = props.on_open;
+    let on_save = props.on_save;
     let on_reset = props.on_reset;
     let on_copy = props.on_copy;
-    let on_export_pdf = props.on_export_pdf;
+    let on_export = props.on_export;
     let on_toggle_sync_scroll = props.on_toggle_sync_scroll;
     let on_toggle_theme = props.on_toggle_theme;
 
@@ -24,6 +28,18 @@ pub fn Toolbar(props: ToolbarProps) -> Element {
         header { class: "topbar",
             nav { class: "menu",
                 span { class: "brand", "{props.title}" }
+
+                button {
+                    class: "menu-button",
+                    onclick: move |_| on_open.call(()),
+                    "Open"
+                }
+
+                button {
+                    class: "menu-button",
+                    onclick: move |_| on_save.call(()),
+                    "Save"
+                }
 
                 button {
                     class: "menu-button",
@@ -39,8 +55,8 @@ pub fn Toolbar(props: ToolbarProps) -> Element {
 
                 button {
                     class: "menu-button",
-                    onclick: move |_| on_export_pdf.call(()),
-                    "Export PDF"
+                    onclick: move |_| on_export.call(()),
+                    "Export HTML"
                 }
 
                 label { class: "menu-check",

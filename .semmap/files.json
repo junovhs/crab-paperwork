@@ -1,0 +1,1139 @@
+[
+  {
+    "path": "Cargo.toml",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Workspace configuration.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "Dioxus.toml",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Configuration for Dioxus.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "README.md",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Project overview and usage guide.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "SEMMAP.md",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Generated semantic map.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "neti.toml",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Configuration for neti.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "rustfmt.toml",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Configuration for rustfmt.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/storage/config.rs",
+    "layer": 0,
+    "file_kind": "production",
+    "description": "Provides shared config used across multiple domains.",
+    "exports": [
+      "AppConfig.normalized_split_ratio",
+      "AppConfig",
+      "AppConfig.default"
+    ],
+    "coupling": "pure",
+    "quality_tags": [
+      "undocumented"
+    ],
+    "hotspot": true,
+    "fan_in": 0,
+    "risk_score": 11.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 2,
+        "public": 2,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 4,
+        "resolved_calls": 0,
+        "unresolved_calls": 4,
+        "resolution_rate": 0.0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 3
+      }
+    }
+  },
+  {
+    "path": "src/app.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements App functionality.",
+    "exports": [
+      "actions",
+      "defaults",
+      "state"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "owns-state"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 2.8,
+    "semantic_summary": "side-effecting stateful module",
+    "analysis": {
+      "functions": {
+        "total": 3,
+        "public": 1,
+        "max_cognitive_complexity": 4,
+        "avg_cognitive_complexity": 1
+      },
+      "calls": {
+        "total_calls": 25,
+        "resolved_calls": 1,
+        "unresolved_calls": 24,
+        "resolution_rate": 0.04
+      },
+      "control_flow": {
+        "max_nesting_depth": 1,
+        "cognitive_complexity": 4
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      },
+      "activation": {
+        "total_sites": 1,
+        "kinds": [
+          "callback-surface"
+        ]
+      },
+      "guards": {
+        "total_sites": 2
+      }
+    }
+  },
+  {
+    "path": "src/app/actions.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements initial state.",
+    "exports": [
+      "AppAction",
+      "initial_state",
+      "reduce"
+    ],
+    "coupling": "pure",
+    "quality_tags": [
+      "undocumented"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 4.2,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 2,
+        "public": 2,
+        "max_cognitive_complexity": 6,
+        "avg_cognitive_complexity": 3
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 22,
+        "resolved_calls": 1,
+        "unresolved_calls": 21,
+        "resolution_rate": 0.045454547
+      },
+      "control_flow": {
+        "max_nesting_depth": 2,
+        "cognitive_complexity": 6
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 3
+      },
+      "activation": {
+        "total_sites": 2,
+        "kinds": [
+          "callback-surface"
+        ]
+      }
+    }
+  },
+  {
+    "path": "src/app/defaults.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements default markdown.",
+    "exports": [
+      "DEFAULT_MARKDOWN"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "owns-state"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "side-effecting stateful module",
+    "analysis": {
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      }
+    }
+  },
+  {
+    "path": "src/app/state.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements app state.default.",
+    "exports": [
+      "ThemeMode.from_config_value",
+      "ThemeMode",
+      "ThemeMode.as_str",
+      "ThemeMode.css_class"
+    ],
+    "coupling": "pure",
+    "quality_tags": [
+      "undocumented"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 3.2,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 4,
+        "public": 4,
+        "max_cognitive_complexity": 1,
+        "avg_cognitive_complexity": 0
+      },
+      "types": {
+        "total": 2,
+        "public": 2
+      },
+      "calls": {
+        "total_calls": 12,
+        "resolved_calls": 1,
+        "unresolved_calls": 11,
+        "resolution_rate": 0.083333336
+      },
+      "control_flow": {
+        "max_nesting_depth": 0,
+        "cognitive_complexity": 3
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 6
+      },
+      "activation": {
+        "total_sites": 1,
+        "kinds": [
+          "string-dispatch"
+        ]
+      }
+    }
+  },
+  {
+    "path": "src/markdown.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Re-exports the public API surface.",
+    "exports": [
+      "render",
+      "sanitize"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 3.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/markdown/sanitize.rs",
+    "layer": 1,
+    "file_kind": "test",
+    "description": "Implements sanitize html.",
+    "exports": [
+      "sanitize_html"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "panics-on-error"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 4.3333335,
+    "semantic_summary": "side-effecting that panics on error",
+    "analysis": {
+      "functions": {
+        "total": 3,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 11,
+        "resolved_calls": 2,
+        "unresolved_calls": 9,
+        "resolution_rate": 0.18181819
+      },
+      "error_handling": {
+        "total_sites": 4,
+        "panics": 4,
+        "swallowed": 0,
+        "propagated": 0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      },
+      "activation": {
+        "total_sites": 1,
+        "kinds": [
+          "callback-surface"
+        ]
+      },
+      "guards": {
+        "total_sites": 4
+      }
+    }
+  },
+  {
+    "path": "src/platform.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Re-exports the public API surface.",
+    "exports": [
+      "clipboard",
+      "dialogs",
+      "files"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/platform/clipboard.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements copy text.",
+    "exports": [
+      "copy_text"
+    ],
+    "coupling": "pure",
+    "behavior_tags": [
+      "propagates-errors"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.6666667,
+    "semantic_summary": "pure computation that propagates errors",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 6,
+        "resolved_calls": 0,
+        "unresolved_calls": 6,
+        "resolution_rate": 0.0
+      },
+      "control_flow": {
+        "max_nesting_depth": 0,
+        "cognitive_complexity": 0
+      },
+      "error_handling": {
+        "total_sites": 2,
+        "panics": 0,
+        "swallowed": 0,
+        "propagated": 2
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      }
+    }
+  },
+  {
+    "path": "src/platform/dialogs.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements pick export html save path.",
+    "exports": [
+      "pick_export_html_save_path",
+      "pick_markdown_open_path",
+      "pick_markdown_save_path"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "persists"
+    ],
+    "quality_tags": [
+      "undocumented"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "side-effecting adapter",
+    "analysis": {
+      "functions": {
+        "total": 3,
+        "public": 3,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 18,
+        "resolved_calls": 0,
+        "unresolved_calls": 18,
+        "resolution_rate": 0.0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 3
+      }
+    }
+  },
+  {
+    "path": "src/platform/files.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "controller for files via file I/O.",
+    "exports": [
+      "read_markdown",
+      "write_markdown"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "persists"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "side-effecting adapter",
+    "analysis": {
+      "functions": {
+        "total": 2,
+        "public": 2,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 12,
+        "resolved_calls": 0,
+        "unresolved_calls": 12,
+        "resolution_rate": 0.0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 2
+      },
+      "activation": {
+        "total_sites": 2,
+        "kinds": [
+          "callback-surface"
+        ]
+      }
+    }
+  },
+  {
+    "path": "src/storage.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "config for storage via file I/O.",
+    "exports": [
+      "load_config",
+      "load_session",
+      "save_config",
+      "save_session"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "persists",
+      "propagates-errors"
+    ],
+    "quality_tags": [
+      "undocumented",
+      "error-boundary",
+      "syntax-degraded"
+    ],
+    "hotspot": true,
+    "fan_in": 0,
+    "risk_score": 8.2,
+    "semantic_summary": "side-effecting adapter that propagates errors",
+    "analysis": {
+      "functions": {
+        "total": 4,
+        "public": 4,
+        "max_cognitive_complexity": 1,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 40,
+        "resolved_calls": 0,
+        "unresolved_calls": 40,
+        "resolution_rate": 0.0
+      },
+      "control_flow": {
+        "max_nesting_depth": 1,
+        "cognitive_complexity": 2
+      },
+      "error_handling": {
+        "total_sites": 12,
+        "panics": 0,
+        "swallowed": 0,
+        "propagated": 12
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 4
+      },
+      "syntax": {
+        "error_count": 2,
+        "missing_count": 0
+      },
+      "activation": {
+        "total_sites": 6,
+        "kinds": [
+          "callback-surface"
+        ]
+      }
+    }
+  },
+  {
+    "path": "src/storage/paths.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "config for paths via file I/O.",
+    "exports": [
+      "project_dirs",
+      "data_dir",
+      "session_file",
+      "config_dir"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "owns-state",
+      "persists",
+      "propagates-errors"
+    ],
+    "quality_tags": [
+      "undocumented",
+      "error-boundary"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 5.0,
+    "semantic_summary": "side-effecting stateful adapter that propagates errors",
+    "analysis": {
+      "functions": {
+        "total": 5,
+        "public": 5,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 30,
+        "resolved_calls": 4,
+        "unresolved_calls": 26,
+        "resolution_rate": 0.13333334
+      },
+      "control_flow": {
+        "max_nesting_depth": 0,
+        "cognitive_complexity": 0
+      },
+      "error_handling": {
+        "total_sites": 6,
+        "panics": 0,
+        "swallowed": 0,
+        "propagated": 6
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 5
+      },
+      "activation": {
+        "total_sites": 3,
+        "kinds": [
+          "callback-surface"
+        ]
+      }
+    }
+  },
+  {
+    "path": "src/storage/session.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements session state.",
+    "exports": [
+      "SessionState"
+    ],
+    "hotspot": true,
+    "fan_in": 0,
+    "risk_score": 5.0,
+    "analysis": {
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 2,
+        "resolved_calls": 0,
+        "unresolved_calls": 2,
+        "resolution_rate": 0.0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      }
+    }
+  },
+  {
+    "path": "src/ui.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Re-exports the public API surface.",
+    "exports": [
+      "editor",
+      "preview",
+      "split",
+      "status"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 3.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/ui/editor.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements editor props.",
+    "exports": [
+      "EditorProps",
+      "Editor"
+    ],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 4,
+        "resolved_calls": 1,
+        "unresolved_calls": 3,
+        "resolution_rate": 0.25
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 2
+      }
+    }
+  },
+  {
+    "path": "src/ui/preview.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements preview props.",
+    "exports": [
+      "PreviewProps",
+      "Preview"
+    ],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 3,
+        "resolved_calls": 1,
+        "unresolved_calls": 2,
+        "resolution_rate": 0.33333334
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 2
+      }
+    }
+  },
+  {
+    "path": "src/ui/split.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements split props.",
+    "exports": [
+      "SplitProps",
+      "Split"
+    ],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.4,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 2,
+        "avg_cognitive_complexity": 2
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 6,
+        "resolved_calls": 1,
+        "unresolved_calls": 5,
+        "resolution_rate": 0.16666667
+      },
+      "control_flow": {
+        "max_nesting_depth": 1,
+        "cognitive_complexity": 2
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 2
+      },
+      "guards": {
+        "total_sites": 1
+      }
+    }
+  },
+  {
+    "path": "src/ui/status.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements status props.",
+    "exports": [
+      "StatusProps",
+      "Status"
+    ],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 2,
+        "resolved_calls": 1,
+        "unresolved_calls": 1,
+        "resolution_rate": 0.5
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 2
+      }
+    }
+  },
+  {
+    "path": "src/ui/toolbar.rs",
+    "layer": 1,
+    "file_kind": "production",
+    "description": "Implements toolbar props.",
+    "exports": [
+      "ToolbarProps",
+      "Toolbar"
+    ],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "types": {
+        "total": 1,
+        "public": 1
+      },
+      "calls": {
+        "total_calls": 2,
+        "resolved_calls": 1,
+        "unresolved_calls": 1,
+        "resolution_rate": 0.5
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 2
+      }
+    }
+  },
+  {
+    "path": "src/export.rs",
+    "layer": 2,
+    "file_kind": "production",
+    "description": "Re-exports the public API surface.",
+    "exports": [
+      "html",
+      "pdf"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 3.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/export/html.rs",
+    "layer": 2,
+    "file_kind": "production",
+    "description": "utility for html via file I/O.",
+    "exports": [
+      "save_html"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "persists"
+    ],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "side-effecting adapter",
+    "analysis": {
+      "functions": {
+        "total": 2,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 10,
+        "resolved_calls": 0,
+        "unresolved_calls": 10,
+        "resolution_rate": 0.0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      },
+      "activation": {
+        "total_sites": 1,
+        "kinds": [
+          "callback-surface"
+        ]
+      }
+    }
+  },
+  {
+    "path": "src/export/pdf.rs",
+    "layer": 2,
+    "file_kind": "production",
+    "description": "Sets the pdf.",
+    "exports": [
+      "save_pdf"
+    ],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 1.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 1,
+        "resolved_calls": 0,
+        "unresolved_calls": 1,
+        "resolution_rate": 0.0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      }
+    }
+  },
+  {
+    "path": "src/markdown/render.rs",
+    "layer": 2,
+    "file_kind": "test",
+    "description": "Formats markdown for output.",
+    "exports": [
+      "render_markdown"
+    ],
+    "coupling": "mixed",
+    "behavior_tags": [
+      "panics-on-error"
+    ],
+    "hotspot": true,
+    "fan_in": 0,
+    "risk_score": 8.333333,
+    "semantic_summary": "side-effecting that panics on error",
+    "analysis": {
+      "functions": {
+        "total": 4,
+        "public": 1,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 20,
+        "resolved_calls": 3,
+        "unresolved_calls": 17,
+        "resolution_rate": 0.15
+      },
+      "error_handling": {
+        "total_sites": 4,
+        "panics": 4,
+        "swallowed": 0,
+        "propagated": 0
+      },
+      "docs": {
+        "documented_symbols": 0,
+        "undocumented_public": 1
+      },
+      "activation": {
+        "total_sites": 4,
+        "kinds": [
+          "callback-surface"
+        ]
+      },
+      "guards": {
+        "total_sites": 4
+      }
+    }
+  },
+  {
+    "path": "assets/github_markdown_dark.css",
+    "layer": 3,
+    "file_kind": "production",
+    "description": "Implements github markdown dark. styles.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "assets/github_markdown_light.css",
+    "layer": 3,
+    "file_kind": "production",
+    "description": "Implements github markdown light. styles.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "assets/main.css",
+    "layer": 3,
+    "file_kind": "production",
+    "description": "Implements main functionality. styles.",
+    "exports": [],
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/lib.rs",
+    "layer": 3,
+    "file_kind": "production",
+    "description": "Re-exports the public API surface.",
+    "exports": [
+      "export",
+      "markdown",
+      "platform",
+      "storage"
+    ],
+    "hotspot": true,
+    "fan_in": 0,
+    "risk_score": 6.0,
+    "analysis": {}
+  },
+  {
+    "path": "src/main.rs",
+    "layer": 3,
+    "file_kind": "production",
+    "description": "Application entry point.",
+    "exports": [],
+    "coupling": "pure",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.0,
+    "semantic_summary": "pure computation",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 0,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 1,
+        "resolved_calls": 0,
+        "unresolved_calls": 1,
+        "resolution_rate": 0.0
+      }
+    }
+  },
+  {
+    "path": "tests/markdown_render.rs",
+    "layer": 4,
+    "file_kind": "test",
+    "description": "Tests for crab_paperwork.",
+    "exports": [],
+    "coupling": "mixed",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 3.0,
+    "semantic_summary": "side-effecting",
+    "analysis": {
+      "functions": {
+        "total": 2,
+        "public": 0,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 4,
+        "resolved_calls": 0,
+        "unresolved_calls": 4,
+        "resolution_rate": 0.0
+      },
+      "error_handling": {
+        "total_sites": 9,
+        "panics": 9,
+        "swallowed": 0,
+        "propagated": 0
+      },
+      "activation": {
+        "total_sites": 2,
+        "kinds": [
+          "callback-surface"
+        ]
+      },
+      "guards": {
+        "total_sites": 9
+      }
+    }
+  },
+  {
+    "path": "tests/storage.rs",
+    "layer": 4,
+    "file_kind": "test",
+    "description": "Tests for crab_paperwork.",
+    "exports": [],
+    "coupling": "mixed",
+    "hotspot": false,
+    "fan_in": 0,
+    "risk_score": 0.6666667,
+    "semantic_summary": "side-effecting",
+    "analysis": {
+      "functions": {
+        "total": 1,
+        "public": 0,
+        "max_cognitive_complexity": 0,
+        "avg_cognitive_complexity": 0
+      },
+      "calls": {
+        "total_calls": 4,
+        "resolved_calls": 0,
+        "unresolved_calls": 4,
+        "resolution_rate": 0.0
+      },
+      "error_handling": {
+        "total_sites": 2,
+        "panics": 2,
+        "swallowed": 0,
+        "propagated": 0
+      },
+      "guards": {
+        "total_sites": 2
+      }
+    }
+  }
+]

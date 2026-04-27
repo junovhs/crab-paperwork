@@ -1,0 +1,173 @@
+[
+  {
+    "name": "config",
+    "purpose": "Dense dependency cluster with 3 files.",
+    "files": [
+      "src/app.rs",
+      "src/app/actions.rs",
+      "src/storage/config.rs"
+    ],
+    "interface_symbols": [
+      "AppConfig",
+      "AppConfig.default",
+      "AppConfig.normalized_split_ratio"
+    ],
+    "hotspot_files": [
+      "src/storage/config.rs"
+    ],
+    "internal_edge_density": 0.6666666666666666,
+    "external_callers": 8
+  },
+  {
+    "name": "config-2",
+    "purpose": "Dense dependency cluster with 4 files.",
+    "files": [
+      "src/app.rs",
+      "src/app/actions.rs",
+      "src/storage.rs",
+      "src/storage/config.rs"
+    ],
+    "interface_symbols": [
+      "AppConfig",
+      "AppConfig.default",
+      "AppConfig.normalized_split_ratio",
+      "load_config",
+      "load_session",
+      "save_config",
+      "save_session"
+    ],
+    "hotspot_files": [
+      "src/storage.rs",
+      "src/storage/config.rs"
+    ],
+    "internal_edge_density": 0.5,
+    "external_callers": 11
+  },
+  {
+    "name": "storage",
+    "purpose": "Dense dependency cluster with 3 files.",
+    "files": [
+      "src/app.rs",
+      "src/lib.rs",
+      "src/storage.rs"
+    ],
+    "interface_symbols": [
+      "export",
+      "load_config",
+      "load_session",
+      "markdown",
+      "platform",
+      "save_config",
+      "save_session",
+      "storage"
+    ],
+    "hotspot_files": [
+      "src/lib.rs",
+      "src/storage.rs"
+    ],
+    "internal_edge_density": 0.5,
+    "external_callers": 7
+  },
+  {
+    "name": "lib",
+    "purpose": "Dense dependency cluster with 3 files.",
+    "files": [
+      "src/app.rs",
+      "src/lib.rs",
+      "src/ui.rs"
+    ],
+    "interface_symbols": [
+      "export",
+      "markdown",
+      "platform",
+      "storage"
+    ],
+    "hotspot_files": [
+      "src/lib.rs"
+    ],
+    "internal_edge_density": 0.5,
+    "external_callers": 4
+  },
+  {
+    "name": "session",
+    "purpose": "Dense dependency cluster with 3 files.",
+    "files": [
+      "src/app.rs",
+      "src/storage.rs",
+      "src/storage/session.rs"
+    ],
+    "interface_symbols": [
+      "load_config",
+      "load_session",
+      "save_config",
+      "save_session"
+    ],
+    "hotspot_files": [
+      "src/storage.rs",
+      "src/storage/session.rs"
+    ],
+    "internal_edge_density": 0.5,
+    "external_callers": 5
+  },
+  {
+    "name": "lib-2",
+    "purpose": "Dense dependency cluster with 3 files.",
+    "files": [
+      "src/lib.rs",
+      "src/platform.rs",
+      "src/platform/files.rs"
+    ],
+    "interface_symbols": [
+      "export",
+      "markdown",
+      "platform",
+      "storage"
+    ],
+    "hotspot_files": [
+      "src/lib.rs"
+    ],
+    "internal_edge_density": 0.5,
+    "external_callers": 4
+  },
+  {
+    "name": "config-3",
+    "purpose": "Dense dependency cluster with 4 files.",
+    "files": [
+      "src/app.rs",
+      "src/app/actions.rs",
+      "src/markdown.rs",
+      "src/storage/config.rs"
+    ],
+    "interface_symbols": [
+      "AppConfig",
+      "AppConfig.default",
+      "AppConfig.normalized_split_ratio"
+    ],
+    "hotspot_files": [
+      "src/storage/config.rs"
+    ],
+    "internal_edge_density": 0.4166666666666667,
+    "external_callers": 10
+  },
+  {
+    "name": "lib-3",
+    "purpose": "Dense dependency cluster with 4 files.",
+    "files": [
+      "src/app.rs",
+      "src/lib.rs",
+      "src/ui.rs",
+      "src/ui/split.rs"
+    ],
+    "interface_symbols": [
+      "export",
+      "markdown",
+      "platform",
+      "storage"
+    ],
+    "hotspot_files": [
+      "src/lib.rs"
+    ],
+    "internal_edge_density": 0.4166666666666667,
+    "external_callers": 4
+  }
+]

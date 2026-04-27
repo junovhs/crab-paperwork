@@ -1,0 +1,247 @@
+[
+  {
+    "from": "src/app.rs",
+    "to": "src/app/actions.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/app/defaults.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/app/state.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/storage.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/ui.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app/actions.rs",
+    "to": "src/app.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app/actions.rs",
+    "to": "src/markdown.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/markdown.rs",
+    "to": "src/markdown/render.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/markdown.rs",
+    "to": "src/markdown/sanitize.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/platform.rs",
+    "to": "src/platform/clipboard.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/platform.rs",
+    "to": "src/platform/dialogs.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/platform.rs",
+    "to": "src/platform/files.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/storage.rs",
+    "to": "src/storage/config.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/storage.rs",
+    "to": "src/storage/paths.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/storage.rs",
+    "to": "src/storage/session.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/ui.rs",
+    "to": "src/ui/editor.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/ui.rs",
+    "to": "src/ui/preview.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/ui.rs",
+    "to": "src/ui/split.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/ui.rs",
+    "to": "src/ui/status.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/ui.rs",
+    "to": "src/ui/toolbar.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/ui/split.rs",
+    "to": "src/ui.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/export.rs",
+    "to": "src/export/html.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/export.rs",
+    "to": "src/export/pdf.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/markdown/render.rs",
+    "to": "src/markdown.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/app.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/export.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/markdown.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/platform.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/storage.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/lib.rs",
+    "to": "src/ui.rs",
+    "kind": "import"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/app/state.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/app/actions.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/storage.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/markdown/render.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app.rs",
+    "to": "src/storage/session.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app/actions.rs",
+    "to": "src/markdown/render.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/app/actions.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/markdown/sanitize.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/markdown/sanitize.rs",
+    "to": "src/export.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/platform/files.rs",
+    "to": "src/lib.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/storage.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/storage.rs",
+    "to": "src/storage/session.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/storage.rs",
+    "to": "src/storage/paths.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/markdown/render.rs",
+    "to": "src/lib.rs",
+    "kind": "call"
+  },
+  {
+    "from": "src/markdown/render.rs",
+    "to": "src/markdown/sanitize.rs",
+    "kind": "call"
+  },
+  {
+    "from": "tests/markdown_render.rs",
+    "to": "src/markdown/render.rs",
+    "kind": "call"
+  },
+  {
+    "from": "tests/markdown_render.rs",
+    "to": "src/lib.rs",
+    "kind": "call"
+  },
+  {
+    "from": "tests/storage.rs",
+    "to": "src/storage/config.rs",
+    "kind": "call"
+  }
+]

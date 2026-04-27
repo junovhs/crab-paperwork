@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use std::path::PathBuf;
 
 #[derive(Clone, Copy, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
 pub enum ThemeMode {
@@ -22,7 +23,7 @@ impl ThemeMode {
         }
     }
 
-    pub fn from_str(value: &str) -> Self {
+    pub fn from_config_value(value: &str) -> Self {
         match value.trim().to_ascii_lowercase().as_str() {
             "dark" => Self::Dark,
             _ => Self::Light,
@@ -34,6 +35,7 @@ impl ThemeMode {
 pub struct AppState {
     pub markdown: String,
     pub rendered_html: String,
+    pub current_file: Option<PathBuf>,
     pub theme: ThemeMode,
     pub sync_scroll: bool,
     pub split_ratio: f32,
@@ -46,6 +48,7 @@ impl Default for AppState {
         Self {
             markdown: String::new(),
             rendered_html: String::new(),
+            current_file: None,
             theme: ThemeMode::Light,
             sync_scroll: false,
             split_ratio: 0.5,
